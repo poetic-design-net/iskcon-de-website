@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<link rel="stylesheet" href="https://use.typekit.net/ggd7fsp.css">
+		<link rel="stylesheet" href="https://use.typekit.net/lqa8fzi.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			/* Preload-Styles für Icons */
+			.icon-preload {
+				color: #B84234; /* primary-500 Farbe */
+				display: none;
+			}
+		</style>
+		%sveltekit.head%
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<!-- Preload-Elemente für Icons -->
+		<div class="icon-preload" aria-hidden="true"></div>
+		<div style="display: contents">%sveltekit.body%</div>
+	</body>
+</html>

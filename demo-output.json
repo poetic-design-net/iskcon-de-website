@@ -1,0 +1,1329 @@
+[
+  {
+    "_id": "pagesqyb3mfz",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.059Z",
+    "_updatedAt": "2025-06-30T05:01:02.059Z",
+    "title": "Über uns",
+    "slug": {
+      "_type": "slug",
+      "current": "ueber-uns"
+    },
+    "description": "Erfahre mehr über die Internationale Gesellschaft für Krishna-Bewusstsein und unsere Mission.",
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "heroybtja9xf"
+      },
+      {
+        "_type": "reference",
+        "_ref": "gridbww7otr9"
+      },
+      {
+        "_type": "reference",
+        "_ref": "faqlakkncdp"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctap7b0ot1z"
+      }
+    ]
+  },
+  {
+    "_id": "pageatk7imq4",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Unsere Philosophie",
+    "slug": {
+      "_type": "slug",
+      "current": "unsere-philosophie"
+    },
+    "description": "Entdecke die tiefgründige Philosophie des Krishna-Bewusstseins und ihre praktische Anwendung im Alltag.",
+    "seo": {
+      "title": "Unsere Philosophie | ISKCON Deutschland",
+      "description": "Entdecke die tiefgründige Philosophie des Krishna-Bewusstseins und ihre praktische Anwendung im Alltag.",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-1122334455-1000x1000-jpg"
+        }
+      }
+    },
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herom4fmsfbk"
+      },
+      {
+        "_type": "reference",
+        "_ref": "cta8j7qz1ji"
+      },
+      {
+        "_type": "reference",
+        "_ref": "grid2srzykea"
+      },
+      {
+        "_type": "reference",
+        "_ref": "cta1z3z0b7j"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctalp25l1xf"
+      }
+    ]
+  },
+  {
+    "_id": "pageuptne2bi",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Tempel & Zentren",
+    "slug": {
+      "_type": "slug",
+      "current": "tempel-zentren"
+    },
+    "description": "Finde ISKCON-Tempel und -Zentren in deiner Nähe und erfahre mehr über ihre Angebote und Programme.",
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herokawlz5gh"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctapruy2v18"
+      },
+      {
+        "_type": "reference",
+        "_ref": "grid7vk7864f"
+      },
+      {
+        "_type": "reference",
+        "_ref": "grid3l9nvvru"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctaz0besh6f"
+      }
+    ]
+  },
+  {
+    "_id": "pagengq59jub",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Veranstaltungen",
+    "slug": {
+      "_type": "slug",
+      "current": "veranstaltungen"
+    },
+    "description": "Informiere dich über kommende Veranstaltungen, Festivals und Retreats in der ISKCON-Gemeinschaft.",
+    "seo": {
+      "title": "Veranstaltungen | ISKCON Deutschland",
+      "description": "Informiere dich über kommende Veranstaltungen, Festivals und Retreats in der ISKCON-Gemeinschaft."
+    },
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herop1odddvx"
+      },
+      {
+        "_type": "reference",
+        "_ref": "grid6jzsjf9l"
+      },
+      {
+        "_type": "reference",
+        "_ref": "quote52zgvgi1"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctatfn6s2p8"
+      }
+    ]
+  },
+  {
+    "_id": "pageoxcy4vfj",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Bhakti Yoga",
+    "slug": {
+      "_type": "slug",
+      "current": "bhakti-yoga"
+    },
+    "description": "Lerne mehr über Bhakti Yoga, den Pfad der liebenden Hingabe, und wie du ihn in deinem Leben praktizieren kannst.",
+    "seo": {
+      "title": "Bhakti Yoga | ISKCON Deutschland",
+      "description": "Lerne mehr über Bhakti Yoga, den Pfad der liebenden Hingabe, und wie du ihn in deinem Leben praktizieren kannst.",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-1234567890-1000x1000-jpg"
+        }
+      }
+    },
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herol47uaw8j"
+      },
+      {
+        "_type": "reference",
+        "_ref": "gridi5o3qzds"
+      },
+      {
+        "_type": "reference",
+        "_ref": "faqnq8ut8yp"
+      },
+      {
+        "_type": "reference",
+        "_ref": "quote6zvk25g9"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctam6myvr6m"
+      }
+    ]
+  },
+  {
+    "_id": "page6pyi2jgv",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Bücher & Medien",
+    "slug": {
+      "_type": "slug",
+      "current": "buecher-medien"
+    },
+    "description": "Entdecke die Vielfalt an spiritueller Literatur, Musik und anderen Medien zum Krishna-Bewusstsein.",
+    "seo": {
+      "title": "Bücher & Medien | ISKCON Deutschland",
+      "description": "Entdecke die Vielfalt an spiritueller Literatur, Musik und anderen Medien zum Krishna-Bewusstsein."
+    },
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herose9v3vgv"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctaxchmvv5s"
+      },
+      {
+        "_type": "reference",
+        "_ref": "grid1l2xoo63"
+      },
+      {
+        "_type": "reference",
+        "_ref": "quote58p15yvr"
+      },
+      {
+        "_type": "reference",
+        "_ref": "mediavqw83rj2"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctauhgiujuj"
+      }
+    ]
+  },
+  {
+    "_id": "page0acxlzq0",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Vegetarische Küche",
+    "slug": {
+      "_type": "slug",
+      "current": "vegetarische-kueche"
+    },
+    "description": "Tauche ein in die Welt der sattvischen, vegetarischen Küche und lerne, wie du bewusst kochen und essen kannst.",
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herofplf179d"
+      },
+      {
+        "_type": "reference",
+        "_ref": "quote3j4k10zd"
+      },
+      {
+        "_type": "reference",
+        "_ref": "faq4x1y76in"
+      },
+      {
+        "_type": "reference",
+        "_ref": "faqlgpxyddv"
+      },
+      {
+        "_type": "reference",
+        "_ref": "cta1tg08any"
+      }
+    ]
+  },
+  {
+    "_id": "page1i56oh5s",
+    "_type": "page",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Kontakt",
+    "slug": {
+      "_type": "slug",
+      "current": "kontakt"
+    },
+    "description": "Nimm Kontakt mit uns auf und erfahre, wie du dich in unserer Gemeinschaft engagieren kannst.",
+    "sections": [
+      {
+        "_type": "reference",
+        "_ref": "herom6rwe0vd"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctaat05mtnw"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctai9a6zymi"
+      },
+      {
+        "_type": "reference",
+        "_ref": "ctany48lhet"
+      }
+    ]
+  },
+  {
+    "_id": "heroybtja9xf",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.059Z",
+    "_updatedAt": "2025-06-30T05:01:02.059Z",
+    "title": "Vedische Kultur erleben",
+    "subtitle": "Finde inneren Frieden und spirituelle Erfüllung durch Krishna-Bewusstsein",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-0987654321-1000x1000-jpg"
+      }
+    },
+    "layout": "right-image"
+  },
+  {
+    "_id": "gridbww7otr9",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.059Z",
+    "_updatedAt": "2025-06-30T05:01:02.059Z",
+    "title": "Unsere Angebote",
+    "description": "Entdecke die Vielfalt unserer spirituellen Gemeinschaft und finde, was dich inspiriert.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/bhakti-yoga"
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1234567890-1000x1000-jpg"
+          }
+        },
+        "link": "/meditation"
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Kirtan",
+        "description": "Tauche ein in die Klänge des Heiligen Namens durch gemeinschaftliches Singen und Musizieren.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Tempelbesuche",
+        "description": "Besuche unsere Tempel und erlebe die spirituelle Atmosphäre und Gemeinschaft.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/tempelbesuche"
+      }
+    ],
+    "columns": 3
+  },
+  {
+    "_id": "faqlakkncdp",
+    "_type": "faqSection",
+    "_createdAt": "2025-06-30T05:01:02.059Z",
+    "_updatedAt": "2025-06-30T05:01:02.059Z",
+    "title": "Häufig gestellte Fragen",
+    "description": "Erfahre mehr über unsere Philosophie, Praktiken und Gemeinschaft durch diese FAQ.",
+    "faqs": [
+      {
+        "question": "Was ist ISKCON?",
+        "answer": "ISKCON (International Society for Krishna Consciousness) ist eine weltweite spirituelle Organisation, die 1966 von A.C. Bhaktivedanta Swami Prabhupada gegründet wurde, um das Wissen über Krishna-Bewusstsein zu verbreiten.",
+        "category": "Allgemein"
+      },
+      {
+        "question": "Was ist Krishna-Bewusstsein?",
+        "answer": "Krishna-Bewusstsein ist die Praxis des Bhakti Yoga, des Pfades der liebenden Hingabe zu Krishna (Gott). Es beinhaltet verschiedene spirituelle Praktiken wie Mantra-Meditation, Studium der vedischen Schriften und einen bewussten Lebensstil.",
+        "category": "Philosophie"
+      },
+      {
+        "question": "Muss ich Hindu sein, um teilzunehmen?",
+        "answer": "Nein, ISKCON ist offen für Menschen aller Glaubensrichtungen und Hintergründe. Die Prinzipien und Praktiken des Krishna-Bewusstseins sind universell und können von jedem angewendet werden, unabhängig von seiner religiösen Zugehörigkeit.",
+        "category": "Teilnahme"
+      },
+      {
+        "question": "Warum praktiziert ISKCON vegetarische Ernährung?",
+        "answer": "Vegetarismus ist ein wichtiger Aspekt des Krishna-Bewusstseins und basiert auf dem Prinzip der Gewaltlosigkeit (Ahimsa). Wir glauben, dass eine vegetarische Ernährung förderlich für spirituelles Wachstum ist und das Mitgefühl für alle Lebewesen fördert.",
+        "category": "Lebensstil"
+      },
+      {
+        "question": "Was ist Prasadam?",
+        "answer": "Prasadam (wörtlich \"Barmherzigkeit\") ist Nahrung, die Krishna geopfert wurde. Durch das Opfern der Nahrung wird sie spiritualisiert und bringt spirituellen Nutzen für diejenigen, die sie zu sich nehmen.",
+        "category": "Praktiken"
+      },
+      {
+        "question": "Was bedeutet das Chanten des Hare Krishna Mantras?",
+        "answer": "Das Chanten des Hare Krishna Maha-Mantras (Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare Hare) ist eine grundlegende spirituelle Praxis im Krishna-Bewusstsein. Es reinigt das Herz, beruhigt den Geist und erweckt die natürliche Liebe zu Gott.",
+        "category": "Praktiken"
+      },
+      {
+        "question": "Wie kann ich mich in der ISKCON engagieren?",
+        "answer": "Es gibt viele Möglichkeiten, sich zu engagieren: Besuche einen Tempel in deiner Nähe, nimm an Programmen und Festivals teil, studiere die Bücher von Srila Prabhupada, praktiziere die Prinzipien des Krishna-Bewusstseins in deinem täglichen Leben oder engagiere dich in verschiedenen Diensten.",
+        "category": "Teilnahme"
+      }
+    ],
+    "layout": "accordion"
+  },
+  {
+    "_id": "ctap7b0ot1z",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.059Z",
+    "_updatedAt": "2025-06-30T05:01:02.059Z",
+    "title": "Entdecke Krishna-Bewusstsein",
+    "description": "Egal wo du dich auf deinem spirituellen Weg befindest, wir sind hier, um dich zu unterstützen und zu inspirieren.",
+    "primaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-1122334455-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "herom4fmsfbk",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke spirituelles Wissen",
+    "subtitle": "Entdecke die zeitlose Weisheit der Bhagavad-gita und des Srimad-Bhagavatam",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-0987654321-1000x1000-jpg"
+      }
+    },
+    "layout": "left-image"
+  },
+  {
+    "_id": "cta8j7qz1ji",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Verbinde dich mit uns",
+    "description": "Egal wo du dich auf deinem spirituellen Weg befindest, wir sind hier, um dich zu unterstützen und zu inspirieren.",
+    "primaryButton": {
+      "text": "Kontakt aufnehmen",
+      "link": "/newsletter"
+    },
+    "background": {
+      "type": "color",
+      "color": "dark"
+    }
+  },
+  {
+    "_id": "grid2srzykea",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Unsere Philosophie",
+    "description": "Wir bieten verschiedene Möglichkeiten, um Krishna-Bewusstsein in deinem Leben zu praktizieren.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        },
+        "link": "/meditation"
+      }
+    ],
+    "columns": 3
+  },
+  {
+    "_id": "cta1z3z0b7j",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Verbinde dich mit uns",
+    "description": "Finde Gleichgesinnte, die deine Werte teilen und dich auf deinem spirituellen Weg begleiten.",
+    "primaryButton": {
+      "text": "Kontakt aufnehmen",
+      "link": "/tempel"
+    },
+    "background": {
+      "type": "color",
+      "color": "dark"
+    }
+  },
+  {
+    "_id": "ctalp25l1xf",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Beginne deine spirituelle Reise",
+    "description": "Finde Gleichgesinnte, die deine Werte teilen und dich auf deinem spirituellen Weg begleiten.",
+    "primaryButton": {
+      "text": "Newsletter abonnieren",
+      "link": "/kontakt"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-0987654321-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "herokawlz5gh",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Vedische Kultur erleben",
+    "subtitle": "Tauche ein in die Welt des Bhakti Yoga und der vedischen Philosophie",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1122334455-1000x1000-jpg"
+      }
+    },
+    "layout": "left-image",
+    "ctaText": "Mehr erfahren",
+    "ctaLink": "/ueber-uns"
+  },
+  {
+    "_id": "ctapruy2v18",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Werde Teil unserer Gemeinschaft",
+    "description": "Wir laden dich ein, mehr über Krishna-Bewusstsein zu erfahren und Teil unserer spirituellen Familie zu werden.",
+    "primaryButton": {
+      "text": "Newsletter abonnieren",
+      "link": "/newsletter"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "color",
+      "color": "secondary"
+    }
+  },
+  {
+    "_id": "grid7vk7864f",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Spirituelle Bücher",
+    "description": "Hier findest du einen Überblick über unsere verschiedenen Angebote und Aktivitäten.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird."
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/vegetarische-kueche"
+      },
+      {
+        "title": "Kirtan",
+        "description": "Tauche ein in die Klänge des Heiligen Namens durch gemeinschaftliches Singen und Musizieren.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Tempelbesuche",
+        "description": "Besuche unsere Tempel und erlebe die spirituelle Atmosphäre und Gemeinschaft.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        },
+        "link": "/tempelbesuche"
+      }
+    ],
+    "columns": 2
+  },
+  {
+    "_id": "grid3l9nvvru",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Unsere Philosophie",
+    "description": "Entdecke die Vielfalt unserer spirituellen Gemeinschaft und finde, was dich inspiriert.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird.",
+        "link": "/bhakti-yoga"
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/meditation"
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1234567890-1000x1000-jpg"
+          }
+        },
+        "link": "/vegetarische-kueche"
+      }
+    ],
+    "columns": 2
+  },
+  {
+    "_id": "ctaz0besh6f",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Finde inneren Frieden",
+    "description": "Finde Gleichgesinnte, die deine Werte teilen und dich auf deinem spirituellen Weg begleiten.",
+    "primaryButton": {
+      "text": "Tempel besuchen",
+      "link": "/newsletter"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-1234567890-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "herop1odddvx",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Gemeinsam auf dem Weg zu Krishna",
+    "subtitle": "Tauche ein in die Welt des Bhakti Yoga und der vedischen Philosophie",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1122334455-1000x1000-jpg"
+      }
+    },
+    "layout": "right-image"
+  },
+  {
+    "_id": "grid6jzsjf9l",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Unsere Philosophie",
+    "description": "Lerne mehr über die verschiedenen Aspekte der vedischen Kultur und Philosophie.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1234567890-1000x1000-jpg"
+          }
+        },
+        "link": "/bhakti-yoga"
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/meditation"
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1122334455-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Kirtan",
+        "description": "Tauche ein in die Klänge des Heiligen Namens durch gemeinschaftliches Singen und Musizieren.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1234567890-1000x1000-jpg"
+          }
+        },
+        "link": "/kirtan"
+      }
+    ],
+    "columns": 2
+  },
+  {
+    "_id": "quote52zgvgi1",
+    "_type": "quoteSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "quote": "Bhakti Yoga ist der direkteste Weg zur Selbstverwirklichung in diesem Zeitalter.",
+    "author": "Srila Prabhupada",
+    "avatar": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1234567890-1000x1000-jpg"
+      }
+    },
+    "backgroundColor": "dark"
+  },
+  {
+    "_id": "ctatfn6s2p8",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Beginne deine spirituelle Reise",
+    "description": "Tritt unserer wachsenden Gemeinschaft bei und entdecke die transformative Kraft des Krishna-Bewusstseins in deinem Leben.",
+    "primaryButton": {
+      "text": "Newsletter abonnieren",
+      "link": "/kontakt"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "color",
+      "color": "secondary"
+    }
+  },
+  {
+    "_id": "herol47uaw8j",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Willkommen bei ISKCON Deutschland",
+    "subtitle": "Verbinde dich mit einer weltweiten Gemeinschaft von Praktizierenden",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1122334455-1000x1000-jpg"
+      }
+    },
+    "layout": "left-image",
+    "ctaText": "Mehr erfahren",
+    "ctaLink": "/ueber-uns"
+  },
+  {
+    "_id": "gridi5o3qzds",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Spirituelle Bücher",
+    "description": "Entdecke die Vielfalt unserer spirituellen Gemeinschaft und finde, was dich inspiriert.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird."
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        }
+      },
+      {
+        "title": "Kirtan",
+        "description": "Tauche ein in die Klänge des Heiligen Namens durch gemeinschaftliches Singen und Musizieren.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-0987654321-1000x1000-jpg"
+          }
+        },
+        "link": "/kirtan"
+      }
+    ],
+    "columns": 3
+  },
+  {
+    "_id": "faqnq8ut8yp",
+    "_type": "faqSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Häufig gestellte Fragen",
+    "description": "Wir haben die wichtigsten Fragen zusammengestellt, die uns oft gestellt werden.",
+    "faqs": [
+      {
+        "question": "Was ist ISKCON?",
+        "answer": "ISKCON (International Society for Krishna Consciousness) ist eine weltweite spirituelle Organisation, die 1966 von A.C. Bhaktivedanta Swami Prabhupada gegründet wurde, um das Wissen über Krishna-Bewusstsein zu verbreiten.",
+        "category": "Allgemein"
+      },
+      {
+        "question": "Was ist Krishna-Bewusstsein?",
+        "answer": "Krishna-Bewusstsein ist die Praxis des Bhakti Yoga, des Pfades der liebenden Hingabe zu Krishna (Gott). Es beinhaltet verschiedene spirituelle Praktiken wie Mantra-Meditation, Studium der vedischen Schriften und einen bewussten Lebensstil.",
+        "category": "Philosophie"
+      },
+      {
+        "question": "Muss ich Hindu sein, um teilzunehmen?",
+        "answer": "Nein, ISKCON ist offen für Menschen aller Glaubensrichtungen und Hintergründe. Die Prinzipien und Praktiken des Krishna-Bewusstseins sind universell und können von jedem angewendet werden, unabhängig von seiner religiösen Zugehörigkeit.",
+        "category": "Teilnahme"
+      },
+      {
+        "question": "Warum praktiziert ISKCON vegetarische Ernährung?",
+        "answer": "Vegetarismus ist ein wichtiger Aspekt des Krishna-Bewusstseins und basiert auf dem Prinzip der Gewaltlosigkeit (Ahimsa). Wir glauben, dass eine vegetarische Ernährung förderlich für spirituelles Wachstum ist und das Mitgefühl für alle Lebewesen fördert.",
+        "category": "Lebensstil"
+      },
+      {
+        "question": "Was ist Prasadam?",
+        "answer": "Prasadam (wörtlich \"Barmherzigkeit\") ist Nahrung, die Krishna geopfert wurde. Durch das Opfern der Nahrung wird sie spiritualisiert und bringt spirituellen Nutzen für diejenigen, die sie zu sich nehmen.",
+        "category": "Praktiken"
+      },
+      {
+        "question": "Was bedeutet das Chanten des Hare Krishna Mantras?",
+        "answer": "Das Chanten des Hare Krishna Maha-Mantras (Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare Hare) ist eine grundlegende spirituelle Praxis im Krishna-Bewusstsein. Es reinigt das Herz, beruhigt den Geist und erweckt die natürliche Liebe zu Gott.",
+        "category": "Praktiken"
+      }
+    ],
+    "layout": "list"
+  },
+  {
+    "_id": "quote6zvk25g9",
+    "_type": "quoteSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "quote": "Der höchste Zweck allen spirituellen Wissens ist es, reine Liebe zu Krishna zu entwickeln.",
+    "author": "Bhakti Charu Swami",
+    "avatar": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1122334455-1000x1000-jpg"
+      }
+    },
+    "backgroundColor": "light"
+  },
+  {
+    "_id": "ctam6myvr6m",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Beginne deine spirituelle Reise",
+    "description": "Tritt unserer wachsenden Gemeinschaft bei und entdecke die transformative Kraft des Krishna-Bewusstseins in deinem Leben.",
+    "primaryButton": {
+      "text": "Newsletter abonnieren",
+      "link": "/kontakt"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-0987654321-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "herose9v3vgv",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke spirituelles Wissen",
+    "subtitle": "Entdecke die zeitlose Weisheit der Bhagavad-gita und des Srimad-Bhagavatam",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1234567890-1000x1000-jpg"
+      }
+    },
+    "layout": "left-image",
+    "ctaText": "Mehr erfahren",
+    "ctaLink": "/ueber-uns"
+  },
+  {
+    "_id": "ctaxchmvv5s",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Verbinde dich mit uns",
+    "description": "Egal wo du dich auf deinem spirituellen Weg befindest, wir sind hier, um dich zu unterstützen und zu inspirieren.",
+    "primaryButton": {
+      "text": "Jetzt beitreten",
+      "link": "/newsletter"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-0987654321-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "grid1l2xoo63",
+    "_type": "gridSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke unsere Tempel",
+    "description": "Hier findest du einen Überblick über unsere verschiedenen Angebote und Aktivitäten.",
+    "items": [
+      {
+        "title": "Bhakti Yoga",
+        "description": "Der Pfad der liebenden Hingabe zu Krishna, der durch verschiedene spirituelle Praktiken kultiviert wird.",
+        "link": "/bhakti-yoga"
+      },
+      {
+        "title": "Meditation",
+        "description": "Erfahre inneren Frieden und Klarheit durch regelmäßige Meditation und Mantra-Rezitation.",
+        "link": "/meditation"
+      },
+      {
+        "title": "Vegetarische Küche",
+        "description": "Entdecke die Freude am Kochen und Genießen von sattvischen, vegetarischen Speisen.",
+        "image": {
+          "_type": "image",
+          "asset": {
+            "_type": "reference",
+            "_ref": "image-1234567890-1000x1000-jpg"
+          }
+        },
+        "link": "/vegetarische-kueche"
+      }
+    ],
+    "columns": 3
+  },
+  {
+    "_id": "quote58p15yvr",
+    "_type": "quoteSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "quote": "Die Seele ist ewig, unveränderlich und unzerstörbar - nur der Körper unterliegt dem Wandel.",
+    "author": "Bhakti Charu Swami",
+    "role": "Spiritueller Meister",
+    "backgroundColor": "dark"
+  },
+  {
+    "_id": "mediavqw83rj2",
+    "_type": "mediaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Festivals und Feierlichkeiten",
+    "description": "Ein Blick hinter die Kulissen unserer spirituellen Gemeinschaft.",
+    "mediaType": "image",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-0987654321-1000x1000-jpg"
+      }
+    },
+    "aspectRatio": "4:3"
+  },
+  {
+    "_id": "ctauhgiujuj",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Finde inneren Frieden",
+    "description": "Tritt unserer wachsenden Gemeinschaft bei und entdecke die transformative Kraft des Krishna-Bewusstseins in deinem Leben.",
+    "primaryButton": {
+      "text": "Tempel besuchen",
+      "link": "/kontakt"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "color",
+      "color": "light"
+    }
+  },
+  {
+    "_id": "herofplf179d",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Vedische Kultur erleben",
+    "subtitle": "Tauche ein in die Welt des Bhakti Yoga und der vedischen Philosophie",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-0987654321-1000x1000-jpg"
+      }
+    },
+    "layout": "right-image",
+    "ctaText": "Mehr erfahren",
+    "ctaLink": "/ueber-uns"
+  },
+  {
+    "_id": "quote3j4k10zd",
+    "_type": "quoteSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "quote": "Der höchste Zweck allen spirituellen Wissens ist es, reine Liebe zu Krishna zu entwickeln.",
+    "author": "Srila Prabhupada",
+    "role": "Autor und spiritueller Lehrer",
+    "backgroundColor": "dark"
+  },
+  {
+    "_id": "faq4x1y76in",
+    "_type": "faqSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Deine Fragen beantwortet",
+    "description": "Erfahre mehr über unsere Philosophie, Praktiken und Gemeinschaft durch diese FAQ.",
+    "faqs": [
+      {
+        "question": "Was ist ISKCON?",
+        "answer": "ISKCON (International Society for Krishna Consciousness) ist eine weltweite spirituelle Organisation, die 1966 von A.C. Bhaktivedanta Swami Prabhupada gegründet wurde, um das Wissen über Krishna-Bewusstsein zu verbreiten.",
+        "category": "Allgemein"
+      },
+      {
+        "question": "Was ist Krishna-Bewusstsein?",
+        "answer": "Krishna-Bewusstsein ist die Praxis des Bhakti Yoga, des Pfades der liebenden Hingabe zu Krishna (Gott). Es beinhaltet verschiedene spirituelle Praktiken wie Mantra-Meditation, Studium der vedischen Schriften und einen bewussten Lebensstil.",
+        "category": "Philosophie"
+      },
+      {
+        "question": "Muss ich Hindu sein, um teilzunehmen?",
+        "answer": "Nein, ISKCON ist offen für Menschen aller Glaubensrichtungen und Hintergründe. Die Prinzipien und Praktiken des Krishna-Bewusstseins sind universell und können von jedem angewendet werden, unabhängig von seiner religiösen Zugehörigkeit.",
+        "category": "Teilnahme"
+      },
+      {
+        "question": "Warum praktiziert ISKCON vegetarische Ernährung?",
+        "answer": "Vegetarismus ist ein wichtiger Aspekt des Krishna-Bewusstseins und basiert auf dem Prinzip der Gewaltlosigkeit (Ahimsa). Wir glauben, dass eine vegetarische Ernährung förderlich für spirituelles Wachstum ist und das Mitgefühl für alle Lebewesen fördert.",
+        "category": "Lebensstil"
+      },
+      {
+        "question": "Was ist Prasadam?",
+        "answer": "Prasadam (wörtlich \"Barmherzigkeit\") ist Nahrung, die Krishna geopfert wurde. Durch das Opfern der Nahrung wird sie spiritualisiert und bringt spirituellen Nutzen für diejenigen, die sie zu sich nehmen.",
+        "category": "Praktiken"
+      }
+    ],
+    "layout": "list"
+  },
+  {
+    "_id": "faqlgpxyddv",
+    "_type": "faqSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "FAQ zum Krishna-Bewusstsein",
+    "description": "Wir haben die wichtigsten Fragen zusammengestellt, die uns oft gestellt werden.",
+    "faqs": [
+      {
+        "question": "Was ist ISKCON?",
+        "answer": "ISKCON (International Society for Krishna Consciousness) ist eine weltweite spirituelle Organisation, die 1966 von A.C. Bhaktivedanta Swami Prabhupada gegründet wurde, um das Wissen über Krishna-Bewusstsein zu verbreiten.",
+        "category": "Allgemein"
+      },
+      {
+        "question": "Was ist Krishna-Bewusstsein?",
+        "answer": "Krishna-Bewusstsein ist die Praxis des Bhakti Yoga, des Pfades der liebenden Hingabe zu Krishna (Gott). Es beinhaltet verschiedene spirituelle Praktiken wie Mantra-Meditation, Studium der vedischen Schriften und einen bewussten Lebensstil.",
+        "category": "Philosophie"
+      },
+      {
+        "question": "Muss ich Hindu sein, um teilzunehmen?",
+        "answer": "Nein, ISKCON ist offen für Menschen aller Glaubensrichtungen und Hintergründe. Die Prinzipien und Praktiken des Krishna-Bewusstseins sind universell und können von jedem angewendet werden, unabhängig von seiner religiösen Zugehörigkeit.",
+        "category": "Teilnahme"
+      },
+      {
+        "question": "Warum praktiziert ISKCON vegetarische Ernährung?",
+        "answer": "Vegetarismus ist ein wichtiger Aspekt des Krishna-Bewusstseins und basiert auf dem Prinzip der Gewaltlosigkeit (Ahimsa). Wir glauben, dass eine vegetarische Ernährung förderlich für spirituelles Wachstum ist und das Mitgefühl für alle Lebewesen fördert.",
+        "category": "Lebensstil"
+      },
+      {
+        "question": "Was ist Prasadam?",
+        "answer": "Prasadam (wörtlich \"Barmherzigkeit\") ist Nahrung, die Krishna geopfert wurde. Durch das Opfern der Nahrung wird sie spiritualisiert und bringt spirituellen Nutzen für diejenigen, die sie zu sich nehmen.",
+        "category": "Praktiken"
+      },
+      {
+        "question": "Was bedeutet das Chanten des Hare Krishna Mantras?",
+        "answer": "Das Chanten des Hare Krishna Maha-Mantras (Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare Hare) ist eine grundlegende spirituelle Praxis im Krishna-Bewusstsein. Es reinigt das Herz, beruhigt den Geist und erweckt die natürliche Liebe zu Gott.",
+        "category": "Praktiken"
+      }
+    ],
+    "layout": "accordion"
+  },
+  {
+    "_id": "cta1tg08any",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Finde inneren Frieden",
+    "description": "Wir laden dich ein, mehr über Krishna-Bewusstsein zu erfahren und Teil unserer spirituellen Familie zu werden.",
+    "primaryButton": {
+      "text": "Kontakt aufnehmen",
+      "link": "/tempel"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-0987654321-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "herom6rwe0vd",
+    "_type": "heroSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke spirituelles Wissen",
+    "subtitle": "Verbinde dich mit einer weltweiten Gemeinschaft von Praktizierenden",
+    "image": {
+      "_type": "image",
+      "asset": {
+        "_type": "reference",
+        "_ref": "image-1122334455-1000x1000-jpg"
+      }
+    },
+    "layout": "left-image",
+    "ctaText": "Mehr erfahren",
+    "ctaLink": "/ueber-uns"
+  },
+  {
+    "_id": "ctaat05mtnw",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Werde Teil unserer Gemeinschaft",
+    "description": "Finde Gleichgesinnte, die deine Werte teilen und dich auf deinem spirituellen Weg begleiten.",
+    "primaryButton": {
+      "text": "Jetzt beitreten",
+      "link": "/kontakt"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "image",
+      "image": {
+        "_type": "image",
+        "asset": {
+          "_type": "reference",
+          "_ref": "image-1122334455-1000x1000-jpg"
+        }
+      }
+    }
+  },
+  {
+    "_id": "ctai9a6zymi",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke Krishna-Bewusstsein",
+    "description": "Wir laden dich ein, mehr über Krishna-Bewusstsein zu erfahren und Teil unserer spirituellen Familie zu werden.",
+    "primaryButton": {
+      "text": "Newsletter abonnieren",
+      "link": "/kontakt"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "color",
+      "color": "secondary"
+    }
+  },
+  {
+    "_id": "ctany48lhet",
+    "_type": "ctaSection",
+    "_createdAt": "2025-06-30T05:01:02.060Z",
+    "_updatedAt": "2025-06-30T05:01:02.060Z",
+    "title": "Entdecke Krishna-Bewusstsein",
+    "description": "Finde Gleichgesinnte, die deine Werte teilen und dich auf deinem spirituellen Weg begleiten.",
+    "primaryButton": {
+      "text": "Jetzt beitreten",
+      "link": "/veranstaltungen"
+    },
+    "secondaryButton": {
+      "text": "Mehr erfahren",
+      "link": "/ueber-uns"
+    },
+    "background": {
+      "type": "color",
+      "color": "secondary"
+    }
+  }
+]
+
+// ===== ANLEITUNG =====
+// 
+// 1. Speichere die Ausgabe in einer Datei, z.B. demo-content.json
+// 2. Importiere die Datei in Sanity mit dem Sanity CLI:
+//    sanity dataset import demo-content.json production
+// 
+// Alternativ kannst du die Daten auch über das Sanity Studio importieren:
+// 1. Gehe zu https://www.sanity.io/manage
+// 2. Wähle dein Projekt aus
+// 3. Gehe zu "Datasets"
+// 4. Wähle dein Dataset aus
+// 5. Klicke auf "Import"
+// 6. Wähle die demo-content.json Datei aus
+// 
+// ===== HINWEIS =====
+// 
+// Die Bild-Referenzen in diesem Demo-Content sind Platzhalter.
+// Du musst echte Bild-Assets in Sanity hochladen und die Referenzen aktualisieren.
+
