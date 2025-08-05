@@ -96,29 +96,126 @@ export async function getIntelligentNavigation(): Promise<MegaMenuCategory[]> {
     
     // Dynamische Navigation generieren
     const navigation: MegaMenuCategory[] = [
-      // ÜBER UNS - Aus Sanity Pages
+      // ÜBER UNS - Erweiterte Sektion mit allen Unterseiten
       {
         title: 'Über uns',
         slug: 'ueber-uns',
         icon: 'mdi:information-outline',
+        subtitle: 'Wer wir sind & unsere Mission',
         sections: [
           {
-            title: 'ISKCON',
-            items: pages
-              .filter((page: any) => page.slug.startsWith('ueber-uns/'))
-              .map((page: any) => ({
-                title: page.title,
-                slug: page.slug,
-                description: page.excerpt || 'Mehr über ISKCON erfahren',
-                icon: 'mdi:lotus'
-              }))
+            title: 'ISKCON Deutschland',
+            items: [
+              { title: 'Über uns', slug: 'ueber-uns', description: 'ISKCON im Überblick', icon: 'mdi:information' },
+              { title: 'Die Bewegung', slug: 'bewegung', description: 'Unsere spirituelle Gemeinschaft', icon: 'mdi:account-group' },
+              { title: 'Geschichte', slug: 'geschichte', description: 'Von 1965 bis heute', icon: 'mdi:history' }
+            ]
+          },
+          {
+            title: 'Organisation',
+            items: [
+              { title: 'GBC', slug: 'gbc', description: 'Spirituelle Führung', icon: 'mdi:office-building' },
+              { title: 'ISKCON Weltweit', slug: 'iskcon-weltweit', description: '600+ Tempel global', icon: 'mdi:earth' }
+            ]
           }
         ],
         featured: {
           title: 'Srila Prabhupada',
           description: 'Lernen Sie unseren Gründer-Acharya kennen',
-          href: '/ueber-uns/srila-prabhupada'
+          href: '/srila-prabhupada',
+          image: 'https://iskconnetrokona.wordpress.com/wp-content/uploads/2016/12/cropped-srila-prabhupada-blissful-japa2.jpg?w=329&h=311'
         }
+      },
+      
+      // COMMUNITY & NEWS - Moved to position 2
+      {
+        title: 'Community & News',
+        slug: 'community',
+        icon: 'mdi:account-group',
+        subtitle: 'Blog, Neuigkeiten & Gemeinschaft',
+        sections: [
+          {
+            title: 'Aktuelles & Austausch',
+            items: [
+              { title: 'Blog', slug: 'blog', description: 'Neuigkeiten und spirituelle Artikel', icon: 'mdi:newspaper' },
+              { title: 'Newsletter', slug: 'newsletter', description: 'Monatliche Updates erhalten', icon: 'mdi:email-newsletter' },
+              { title: 'Community', slug: 'community', description: 'Unsere Gemeinschaft im Überblick', icon: 'mdi:account-group' }
+            ]
+          },
+          {
+            title: 'Projekte & Ressourcen',
+            items: [
+              { title: 'ISKCON Projekte', slug: 'community/projekte', description: 'Aktuelle Projekte und Initiativen', icon: 'mdi:lightbulb' },
+              { title: 'YouTube Kanäle', slug: 'community/youtube', description: 'Spirituelle Videos und Vorträge', icon: 'mdi:youtube' },
+              { title: 'Nützliche Links', slug: 'community/links', description: 'Weiterführende Ressourcen', icon: 'mdi:link' }
+            ]
+          }
+        ],
+        featured: {
+          title: 'Aktueller Blog',
+          description: 'Lesen Sie die neuesten Artikel und Nachrichten aus der ISKCON Community',
+          href: '/blog'
+        }
+      },
+      
+      // PHILOSOPHIE - Neue Sektion für alle Philosophie-Seiten
+      {
+        title: 'Philosophie',
+        slug: 'philosophie',
+        icon: 'mdi:book-open-page-variant',
+        subtitle: 'Vedische Weisheit & spirituelles Wissen',
+        sections: [
+          {
+            title: 'Grundlagen',
+            items: [
+              { title: 'Krishna', slug: 'philosophie/krishna', description: 'Die Höchste Persönlichkeit Gottes', icon: 'mdi:crown' },
+              { title: 'Literatur', slug: 'philosophie/vedische-schriften', description: 'Die zeitlose Weisheit der Veden', icon: 'mdi:book-ancient' },
+              { title: 'Bhakti-Yoga', slug: 'philosophie/bhakti-yoga', description: 'Der Pfad der liebenden Hingabe', icon: 'mdi:yoga' }
+            ]
+          },
+          {
+            title: 'Vertiefung',
+            items: [
+              { title: 'Seele & Reinkarnation', slug: 'philosophie/seele-reinkarnation', description: 'Das ewige Selbst verstehen', icon: 'mdi:infinity' },
+              { title: 'Karma & Dharma', slug: 'philosophie/karma-dharma', description: 'Universelle Gesetze des Handelns', icon: 'mdi:scale-balance' },
+              { title: 'Die drei Erscheinungsweisen', slug: 'philosophie/drei-erscheinungsweisen', description: 'Gunas - Die Kräfte der Natur', icon: 'mdi:triangle-outline' }
+            ]
+          },
+          {
+            title: 'Praxis',
+            items: [
+              { title: 'Vegetarismus & Prasadam', slug: 'philosophie/vegetarismus-prasadam', description: 'Spirituelle Ernährung', icon: 'mdi:food-apple' },
+              { title: 'Guru & Schülernachfolge', slug: 'philosophie/guru-schuelernachfolge', description: 'Die spirituelle Tradition', icon: 'mdi:account-star' }
+            ]
+          }
+        ],
+        featured: {
+          title: 'Bhagavad-gītā',
+          description: 'Beginnen Sie mit dem wichtigsten Text der vedischen Philosophie',
+          href: '/philosophie/vedische-schriften'
+        }
+      },
+      
+      // TEMPEL - Dynamisch aus Sanity
+      {
+        title: 'Tempel',
+        slug: 'tempel',
+        icon: 'mdi:temple-hindu',
+        subtitle: 'ISKCON Zentren in Deutschland',
+        sections: [
+          {
+            title: 'Unsere Standorte',
+            items: [
+              { title: 'Alle Tempel', slug: 'tempel', description: 'ISKCON Zentren in Deutschland', icon: 'mdi:map-marker' },
+              ...activeTemples.map((temple: any) => ({
+                title: temple.name,
+                slug: `tempel/${temple.slug}`,
+                description: `ISKCON ${temple.address.city}`,
+                icon: 'mdi:temple-hindu'
+              }))
+            ]
+          }
+        ]
       },
       
       // EVENTS - Mit neuesten Events und Link zu allen
@@ -126,6 +223,7 @@ export async function getIntelligentNavigation(): Promise<MegaMenuCategory[]> {
         title: 'Events',
         slug: 'events',
         icon: 'mdi:calendar-star',
+        subtitle: 'Feste, Kurse & Veranstaltungen',
         sections: [
           {
             title: 'Neueste Events',
@@ -152,32 +250,12 @@ export async function getIntelligentNavigation(): Promise<MegaMenuCategory[]> {
         ]
       },
       
-      // TEMPEL - Dynamisch aus Sanity
+      // LITERATUR - Vedische Schriften zum Lesen
       {
-        title: 'Tempel',
-        slug: 'tempel',
-        icon: 'mdi:temple-hindu',
-        sections: [
-          {
-            title: 'Unsere Standorte',
-            items: [
-              { title: 'Alle Tempel', slug: 'tempel', description: 'ISKCON Zentren in Deutschland', icon: 'mdi:map-marker' },
-              ...activeTemples.map((temple: any) => ({
-                title: temple.name,
-                slug: `tempel/${temple.slug}`,
-                description: `ISKCON ${temple.address.city}`,
-                icon: 'mdi:temple-hindu'
-              }))
-            ]
-          }
-        ]
-      },
-      
-      // VEDISCHE SCHRIFTEN - Nur Literature-Inhalte
-      {
-        title: 'Vedische Schriften',
-        slug: 'vedische-schriften',
-        icon: 'mdi:book-ancient',
+        title: 'Literatur',
+        slug: 'literature',
+        icon: 'mdi:library',
+        subtitle: 'Bücher & vedische Schriften',
         sections: [
           {
             title: 'Spirituelle Literatur',
@@ -194,43 +272,37 @@ export async function getIntelligentNavigation(): Promise<MegaMenuCategory[]> {
         }
       },
       
-      // SPIRITUELLE PRAXIS - Kombiniert Praxis & Philosophie + Lernen & Vertiefen
+      // SPIRITUELLE PRAXIS - Fokus auf tägliche Praxis und Lernen
       {
         title: 'Spirituelle Praxis',
         slug: 'spirituelle-praxis',
         icon: 'mdi:lotus',
+        subtitle: 'Meditation, Kurse & Retreats',
         sections: [
           {
-            title: 'Praxis & Philosophie',
+            title: 'Tägliche Praxis',
             items: [
-              { title: 'Bhakti-Yoga', slug: 'lehren/bhakti-yoga', description: 'Der Yoga der liebenden Hingabe', icon: 'mdi:yoga' },
-              { title: 'Vedische Philosophie', slug: 'lehren/vedische-philosophie', description: 'Grundlagen der Spiritualität', icon: 'mdi:lotus' },
-              { title: 'Meditation & Mantras', slug: 'lehren/meditation-mantras', description: 'Mantra-Meditation und spirituelle Praxis', icon: 'mdi:meditation' },
-              { title: 'Krishna-Bewusstsein', slug: 'lehren/krishna-bewusstsein', description: 'Der Weg zur Selbstverwirklichung', icon: 'mdi:heart-circle' }
+              { title: 'Meditation & Mantras', slug: 'praxis/meditation-mantras', description: 'Mantra-Meditation und Japa', icon: 'mdi:meditation' },
+              { title: 'Tempelbesuch', slug: 'praxis/tempelbesuch', description: 'Gottesdienst und Darshan', icon: 'mdi:temple-hindu' },
+              { title: 'Sadhana', slug: 'praxis/sadhana', description: 'Spirituelle Disziplin', icon: 'mdi:sunrise' },
+              { title: 'Feste & Feiertage', slug: 'praxis/feste', description: 'Vaishnava-Kalender', icon: 'mdi:calendar-star' }
             ]
           },
           {
             title: 'Lernen & Vertiefen',
             items: [
-              { title: 'Online-Kurse', slug: 'lehren/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
-              { title: 'Vorträge & Seminare', slug: 'lehren/vortraege-seminare', description: 'Live-Veranstaltungen und Workshops', icon: 'mdi:presentation' },
-              { title: 'Studiengruppen', slug: 'lehren/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' },
-              { title: 'Downloads & Ressourcen', slug: 'lehren/downloads', description: 'Spirituelle Materialien zum Herunterladen', icon: 'mdi:download' }
+              { title: 'Online-Kurse', slug: 'praxis/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
+              { title: 'Studiengruppen', slug: 'praxis/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' },
+              { title: 'Retreats', slug: 'praxis/retreats', description: 'Spirituelle Auszeiten', icon: 'mdi:nature-people' },
+              { title: 'Vorträge & Seminare', slug: 'praxis/vortraege', description: 'Live-Veranstaltungen', icon: 'mdi:presentation' }
             ]
           }
         ],
         featured: {
           title: 'Bhakti-Yoga Kurs',
           description: 'Beginnen Sie Ihre spirituelle Reise mit unserem Grundkurs',
-          href: '/lehren/online-kurse'
+          href: '/praxis/online-kurse'
         }
-      },
-      
-      // COMMUNITY - Einfacher Link
-      {
-        title: 'Community',
-        slug: 'community',
-        icon: 'mdi:account-group'
       }
     ];
     
@@ -316,26 +388,36 @@ export function generateFallbackNavigation(): MegaMenuCategory[] {
       title: 'Über uns',
       slug: 'ueber-uns',
       icon: 'mdi:information-outline',
+      subtitle: 'Wer wir sind & unsere Mission',
       sections: [
         {
-          title: 'ISKCON',
+          title: 'ISKCON Deutschland',
           items: [
-            { title: 'Unsere Mission', slug: 'ueber-uns/mission', description: 'Die spirituelle Mission von ISKCON', icon: 'mdi:heart' },
-            { title: 'Geschichte', slug: 'ueber-uns/geschichte', description: 'Von Srila Prabhupada bis heute', icon: 'mdi:history' },
-            { title: 'Philosophie', slug: 'ueber-uns/philosophie', description: 'Krishna-Bewusstsein verstehen', icon: 'mdi:lotus' }
+            { title: 'Über uns', slug: 'ueber-uns', description: 'ISKCON im Überblick', icon: 'mdi:information' },
+            { title: 'Die Bewegung', slug: 'bewegung', description: 'Unsere spirituelle Gemeinschaft', icon: 'mdi:account-group' },
+            { title: 'Geschichte', slug: 'geschichte', description: 'Von 1965 bis heute', icon: 'mdi:history' },
+          ]
+        },
+        {
+          title: 'Organisation',
+          items: [
+            { title: 'GBC', slug: 'gbc', description: 'Spirituelle Führung', icon: 'mdi:office-building' },
+            { title: 'ISKCON Weltweit', slug: 'iskcon-weltweit', description: '600+ Tempel global', icon: 'mdi:earth' }
           ]
         }
       ],
       featured: {
         title: 'Srila Prabhupada',
         description: 'Lernen Sie unseren Gründer-Acharya kennen',
-        href: '/ueber-uns/srila-prabhupada'
+        href: '/srila-prabhupada',
+        image: 'https://iskconnetrokona.wordpress.com/wp-content/uploads/2016/12/cropped-srila-prabhupada-blissful-japa2.jpg?w=329&h=311'
       }
     },
     {
       title: 'Events',
       slug: 'events',
       icon: 'mdi:calendar-star',
+      subtitle: 'Feste, Kurse & Veranstaltungen',
       sections: [
         {
           title: 'Veranstaltungen',
@@ -350,6 +432,7 @@ export function generateFallbackNavigation(): MegaMenuCategory[] {
       title: 'Tempel',
       slug: 'tempel',
       icon: 'mdi:temple-hindu',
+      subtitle: 'ISKCON Zentren in Deutschland',
       sections: [
         {
           title: 'Standorte',
@@ -361,9 +444,46 @@ export function generateFallbackNavigation(): MegaMenuCategory[] {
       ]
     },
     {
-      title: 'Vedische Schriften',
-      slug: 'vedische-schriften',
-      icon: 'mdi:book-ancient',
+      title: 'Philosophie',
+      slug: 'philosophie',
+      icon: 'mdi:book-open-page-variant',
+      subtitle: 'Vedische Weisheit & spirituelles Wissen',
+      sections: [
+        {
+          title: 'Grundlagen',
+          items: [
+            { title: 'Krishna', slug: 'philosophie/krishna', description: 'Die Höchste Persönlichkeit Gottes', icon: 'mdi:crown' },
+            { title: 'Vedische Schriften', slug: 'philosophie/vedische-schriften', description: 'Die zeitlose Weisheit der Veden', icon: 'mdi:book-ancient' },
+            { title: 'Bhakti-Yoga', slug: 'philosophie/bhakti-yoga', description: 'Der Pfad der liebenden Hingabe', icon: 'mdi:yoga' }
+          ]
+        },
+        {
+          title: 'Vertiefung',
+          items: [
+            { title: 'Seele & Reinkarnation', slug: 'philosophie/seele-reinkarnation', description: 'Das ewige Selbst verstehen', icon: 'mdi:infinity' },
+            { title: 'Karma & Dharma', slug: 'philosophie/karma-dharma', description: 'Universelle Gesetze des Handelns', icon: 'mdi:scale-balance' },
+            { title: 'Die drei Erscheinungsweisen', slug: 'philosophie/drei-erscheinungsweisen', description: 'Gunas - Die Kräfte der Natur', icon: 'mdi:triangle-outline' }
+          ]
+        },
+        {
+          title: 'Praxis',
+          items: [
+            { title: 'Vegetarismus & Prasadam', slug: 'philosophie/vegetarismus-prasadam', description: 'Spirituelle Ernährung', icon: 'mdi:food-apple' },
+            { title: 'Guru & Schülernachfolge', slug: 'philosophie/guru-schuelernachfolge', description: 'Die spirituelle Tradition', icon: 'mdi:account-star' }
+          ]
+        }
+      ],
+      featured: {
+        title: 'Bhagavad-gītā',
+        description: 'Beginnen Sie mit dem wichtigsten Text der vedischen Philosophie',
+        href: '/philosophie/vedische-schriften'
+      }
+    },
+    {
+      title: 'Literatur',
+      slug: 'literature',
+      icon: 'mdi:library',
+      subtitle: 'Bücher & vedische Schriften',
       sections: [
         {
           title: 'Spirituelle Literatur',
@@ -384,36 +504,50 @@ export function generateFallbackNavigation(): MegaMenuCategory[] {
       title: 'Spirituelle Praxis',
       slug: 'spirituelle-praxis',
       icon: 'mdi:lotus',
+      subtitle: 'Meditation, Kurse & Retreats',
       sections: [
         {
-          title: 'Praxis & Philosophie',
+          title: 'Tägliche Praxis',
           items: [
-            { title: 'Bhakti-Yoga', slug: 'lehren/bhakti-yoga', description: 'Der Yoga der liebenden Hingabe', icon: 'mdi:yoga' },
-            { title: 'Vedische Philosophie', slug: 'lehren/vedische-philosophie', description: 'Grundlagen der Spiritualität', icon: 'mdi:lotus' },
-            { title: 'Meditation & Mantras', slug: 'lehren/meditation-mantras', description: 'Mantra-Meditation', icon: 'mdi:meditation' },
-            { title: 'Krishna-Bewusstsein', slug: 'lehren/krishna-bewusstsein', description: 'Der Weg zur Selbstverwirklichung', icon: 'mdi:heart-circle' }
+            { title: 'Meditation & Mantras', slug: 'praxis/meditation-mantras', description: 'Mantra-Meditation und Japa', icon: 'mdi:meditation' },
+            { title: 'Tempelbesuch', slug: 'praxis/tempelbesuch', description: 'Gottesdienst und Darshan', icon: 'mdi:temple-hindu' },
+            { title: 'Sadhana', slug: 'praxis/sadhana', description: 'Spirituelle Disziplin', icon: 'mdi:sunrise' }
           ]
         },
         {
           title: 'Lernen & Vertiefen',
           items: [
-            { title: 'Online-Kurse', slug: 'lehren/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
-            { title: 'Vorträge & Seminare', slug: 'lehren/vortraege-seminare', description: 'Live-Veranstaltungen und Workshops', icon: 'mdi:presentation' },
-            { title: 'Studiengruppen', slug: 'lehren/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' },
-            { title: 'Downloads & Ressourcen', slug: 'lehren/downloads', description: 'Spirituelle Materialien', icon: 'mdi:download' }
+            { title: 'Online-Kurse', slug: 'praxis/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
+            { title: 'Studiengruppen', slug: 'praxis/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' },
+            { title: 'Retreats', slug: 'praxis/retreats', description: 'Spirituelle Auszeiten', icon: 'mdi:nature-people' }
           ]
         }
       ],
       featured: {
         title: 'Bhakti-Yoga Kurs',
         description: 'Beginnen Sie Ihre spirituelle Reise mit unserem Grundkurs',
-        href: '/lehren/online-kurse'
+        href: '/praxis/online-kurse'
       }
     },
     {
       title: 'Community',
       slug: 'community',
-      icon: 'mdi:account-group'
+      icon: 'mdi:account-group',
+      subtitle: 'Blog, Neuigkeiten & Gemeinschaft',
+      sections: [
+        {
+          title: 'Aktuelles & Austausch',
+          items: [
+            { title: 'Blog', slug: 'blog', description: 'Neuigkeiten und spirituelle Artikel', icon: 'mdi:newspaper' },
+            { title: 'Community', slug: 'community', description: 'Unsere Gemeinschaft im Überblick', icon: 'mdi:account-group' }
+          ]
+        }
+      ],
+      featured: {
+        title: 'Aktueller Blog',
+        description: 'Lesen Sie die neuesten Artikel und Nachrichten aus der ISKCON Community',
+        href: '/blog'
+      }
     }
   ];
 }
@@ -430,26 +564,36 @@ export function generateFallbackNavigationWithTemples(templeItems: Array<{
       title: 'Über uns',
       slug: 'ueber-uns',
       icon: 'mdi:information-outline',
+      subtitle: 'Wer wir sind & unsere Mission',
       sections: [
         {
-          title: 'ISKCON',
+          title: 'ISKCON Deutschland',
           items: [
-            { title: 'Unsere Mission', slug: 'ueber-uns/mission', description: 'Die spirituelle Mission von ISKCON', icon: 'mdi:heart' },
-            { title: 'Geschichte', slug: 'ueber-uns/geschichte', description: 'Von Srila Prabhupada bis heute', icon: 'mdi:history' },
-            { title: 'Philosophie', slug: 'ueber-uns/philosophie', description: 'Krishna-Bewusstsein verstehen', icon: 'mdi:lotus' }
+            { title: 'Über uns', slug: 'ueber-uns', description: 'ISKCON im Überblick', icon: 'mdi:information' },
+            { title: 'Die Bewegung', slug: 'bewegung', description: 'Unsere spirituelle Gemeinschaft', icon: 'mdi:account-group' },
+            { title: 'Geschichte', slug: 'geschichte', description: 'Von 1965 bis heute', icon: 'mdi:history' },
+          ]
+        },
+        {
+          title: 'Organisation',
+          items: [
+            { title: 'GBC', slug: 'gbc', description: 'Spirituelle Führung', icon: 'mdi:office-building' },
+            { title: 'ISKCON Weltweit', slug: 'iskcon-weltweit', description: '600+ Tempel global', icon: 'mdi:earth' }
           ]
         }
       ],
       featured: {
         title: 'Srila Prabhupada',
         description: 'Lernen Sie unseren Gründer-Acharya kennen',
-        href: '/ueber-uns/srila-prabhupada'
+        href: '/srila-prabhupada',
+        image: 'https://iskconnetrokona.wordpress.com/wp-content/uploads/2016/12/cropped-srila-prabhupada-blissful-japa2.jpg?w=329&h=311'
       }
     },
     {
       title: 'Events',
       slug: 'events',
       icon: 'mdi:calendar-star',
+      subtitle: 'Feste, Kurse & Veranstaltungen',
       sections: [
         {
           title: 'Veranstaltungen',
@@ -475,9 +619,39 @@ export function generateFallbackNavigationWithTemples(templeItems: Array<{
       ]
     },
     {
-      title: 'Vedische Schriften',
-      slug: 'vedische-schriften',
-      icon: 'mdi:book-ancient',
+      title: 'Philosophie',
+      slug: 'philosophie', 
+      icon: 'mdi:book-open-page-variant',
+      sections: [
+        {
+          title: 'Grundlagen',
+          items: [
+            { title: 'Krishna', slug: 'philosophie/krishna', description: 'Die Höchste Persönlichkeit Gottes', icon: 'mdi:crown' },
+            { title: 'Vedische Schriften', slug: 'philosophie/vedische-schriften', description: 'Die zeitlose Weisheit der Veden', icon: 'mdi:book-ancient' },
+            { title: 'Bhakti-Yoga', slug: 'philosophie/bhakti-yoga', description: 'Der Pfad der liebenden Hingabe', icon: 'mdi:yoga' }
+          ]
+        },
+        {
+          title: 'Vertiefung',
+          items: [
+            { title: 'Seele & Reinkarnation', slug: 'philosophie/seele-reinkarnation', description: 'Das ewige Selbst verstehen', icon: 'mdi:infinity' },
+            { title: 'Karma & Dharma', slug: 'philosophie/karma-dharma', description: 'Universelle Gesetze des Handelns', icon: 'mdi:scale-balance' },
+            { title: 'Die drei Erscheinungsweisen', slug: 'philosophie/drei-erscheinungsweisen', description: 'Gunas - Die Kräfte der Natur', icon: 'mdi:triangle-outline' }
+          ]
+        },
+        {
+          title: 'Praxis',
+          items: [
+            { title: 'Vegetarismus & Prasadam', slug: 'philosophie/vegetarismus-prasadam', description: 'Spirituelle Ernährung', icon: 'mdi:food-apple' },
+            { title: 'Guru & Schülernachfolge', slug: 'philosophie/guru-schuelernachfolge', description: 'Die spirituelle Tradition', icon: 'mdi:account-star' }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Literatur',
+      slug: 'literature', 
+      icon: 'mdi:library',
       sections: [
         {
           title: 'Spirituelle Literatur',
@@ -493,20 +667,21 @@ export function generateFallbackNavigationWithTemples(templeItems: Array<{
       title: 'Spirituelle Praxis',
       slug: 'spirituelle-praxis',
       icon: 'mdi:lotus',
+      subtitle: 'Meditation, Kurse & Retreats',
       sections: [
         {
-          title: 'Praxis & Philosophie',
+          title: 'Tägliche Praxis',
           items: [
-            { title: 'Bhakti-Yoga', slug: 'lehren/bhakti-yoga', description: 'Der Yoga der liebenden Hingabe', icon: 'mdi:yoga' },
-            { title: 'Vedische Philosophie', slug: 'lehren/vedische-philosophie', description: 'Grundlagen der Spiritualität', icon: 'mdi:lotus' },
-            { title: 'Meditation & Mantras', slug: 'lehren/meditation-mantras', description: 'Mantra-Meditation', icon: 'mdi:meditation' }
+            { title: 'Meditation & Mantras', slug: 'praxis/meditation-mantras', description: 'Mantra-Meditation und Japa', icon: 'mdi:meditation' },
+            { title: 'Tempelbesuch', slug: 'praxis/tempelbesuch', description: 'Gottesdienst und Darshan', icon: 'mdi:temple-hindu' },
+            { title: 'Sadhana', slug: 'praxis/sadhana', description: 'Spirituelle Disziplin', icon: 'mdi:sunrise' }
           ]
         },
         {
           title: 'Lernen & Vertiefen',
           items: [
-            { title: 'Online-Kurse', slug: 'lehren/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
-            { title: 'Studiengruppen', slug: 'lehren/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' }
+            { title: 'Online-Kurse', slug: 'praxis/online-kurse', description: 'Strukturierte spirituelle Bildung', icon: 'mdi:school' },
+            { title: 'Studiengruppen', slug: 'praxis/studiengruppen', description: 'Gemeinsam die Schriften studieren', icon: 'mdi:account-group' }
           ]
         }
       ]
@@ -514,7 +689,22 @@ export function generateFallbackNavigationWithTemples(templeItems: Array<{
     {
       title: 'Community',
       slug: 'community',
-      icon: 'mdi:account-group'
+      icon: 'mdi:account-group',
+      subtitle: 'Blog, Neuigkeiten & Gemeinschaft',
+      sections: [
+        {
+          title: 'Aktuelles & Austausch',
+          items: [
+            { title: 'Blog', slug: 'blog', description: 'Neuigkeiten und spirituelle Artikel', icon: 'mdi:newspaper' },
+            { title: 'Community', slug: 'community', description: 'Unsere Gemeinschaft im Überblick', icon: 'mdi:account-group' }
+          ]
+        }
+      ],
+      featured: {
+        title: 'Aktueller Blog',
+        description: 'Lesen Sie die neuesten Artikel und Nachrichten aus der ISKCON Community',
+        href: '/blog'
+      }
     }
   ];
 }

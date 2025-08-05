@@ -7,6 +7,7 @@
     title: string;
     slug: string;
     icon: string;
+    subtitle?: string;
     sections?: Array<{
       title: string;
       items: Array<{
@@ -167,7 +168,7 @@
           <!-- Trigger Button -->
           <button
             type="button"
-            class="inline-flex items-center justify-center gap-2 px-4 py-2 text-foreground font-medium transition-all duration-200 ease-out hover:text-spiritual-saffron-700 hover:bg-spiritual-saffron-50 rounded-md {activeMenu === item.slug ? 'text-spiritual-saffron-700 bg-spiritual-saffron-50' : ''}"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2 text-foreground font-medium transition-all duration-200 ease-out hover:text-primary-500 hover:bg-primary-500/10 rounded-md {activeMenu === item.slug ? 'text-primary-500 bg-primary-500/10' : ''}"
             aria-expanded={activeMenu === item.slug}
             aria-haspopup="true"
             on:keydown={(e) => handleKeyDown(e, item.slug)}
@@ -201,8 +202,13 @@
               <div class="p-6">
                 <!-- Header -->
                 <div class="flex items-center gap-3 mb-4 border-b border-gray-100 pb-3">
-                  <Icon icon={item.icon} class="w-5 h-5 text-spiritual-saffron-600" />
-                  <h2 class="text-lg font-medium text-gray-900">{item.title}</h2>
+                  <Icon icon={item.icon} class="w-5 h-5 text-primary-500" />
+                  <div>
+                    <h2 class="text-lg font-medium text-gray-900">{item.title}</h2>
+                    {#if item.subtitle}
+                      <p class="text-sm text-gray-600 mt-0.5">{item.subtitle}</p>
+                    {/if}
+                  </div>
                 </div>
 
                 <!-- Sections Grid -->
@@ -217,19 +223,30 @@
                         {#each section.items as navItem}
                           <a
                             href="/{navItem.slug}"
-                            class="w-full inline-flex items-start gap-3 p-3 hover:bg-spiritual-saffron-50 hover:text-spiritual-saffron-700 group rounded-lg transition-all duration-150 ease-out"
+                            class="w-full inline-flex items-start gap-3 p-3 hover:bg-primary-500/10 hover:text-primary-500 group rounded-lg transition-all duration-150 ease-out"
                             on:click={() => { activeMenu = ''; }}
                             role="menuitem"
                           >
+                            {#if navItem.title === 'Literatur'}
+                              {@const _ = console.log('LITERATUR ITEM in MegaMenu:', navItem, 'Has icon?', !!navItem.icon)}
+                            {/if}
                             {#if navItem.icon}
-                              <Icon
-                                icon={navItem.icon}
-                                class="w-4 h-4 text-spiritual-saffron-600 flex-shrink-0 mt-0.5 group-hover:text-spiritual-saffron-700 transition-colors duration-150"
-                              />
+                              <!-- Special handling for Literatur to test if specific icon is the problem -->
+                              {#if navItem.title === 'Literatur'}
+                                <Icon
+                                  icon="mdi:book"
+                                  class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5 group-hover:text-primary-500/80 transition-colors duration-150"
+                                />
+                              {:else}
+                                <Icon
+                                  icon={navItem.icon}
+                                  class="w-4 h-4 text-primary-500 flex-shrink-0 mt-0.5 group-hover:text-primary-500/80 transition-colors duration-150"
+                                />
+                              {/if}
                             {/if}
                             
                             <div class="flex-1 min-w-0 text-left">
-                              <div class="font-medium text-gray-900 group-hover:text-spiritual-saffron-700 text-sm transition-colors duration-150">
+                              <div class="font-medium text-gray-900 group-hover:text-primary-500 text-sm transition-colors duration-150">
                                 {navItem.title}
                               </div>
                               
@@ -255,7 +272,7 @@
                   <div class="mt-6 pt-6 border-t border-gray-100">
                     <a 
                       href={item.featured.href}
-                      class="block p-4 bg-gradient-to-r from-spiritual-saffron-50 to-spiritual-lotus-50 rounded-lg hover:from-spiritual-saffron-100 hover:to-spiritual-lotus-100 transition-all duration-200 ease-out group"
+                      class="block p-4 bg-gradient-to-r from-primary-500/10 to-gray-50 rounded-lg hover:from-primary-500/20 hover:to-gray-100 transition-all duration-200 ease-out group"
                       on:click={() => { activeMenu = ''; }}
                     >
                       <div class="flex items-center gap-4">
@@ -268,7 +285,7 @@
                         {/if}
                         
                         <div class="flex-1">
-                          <h4 class="font-medium text-gray-900 group-hover:text-spiritual-saffron-700 transition-colors duration-150">
+                          <h4 class="font-medium text-gray-900 group-hover:text-primary-500 transition-colors duration-150">
                             {item.featured.title}
                           </h4>
                           <p class="text-sm text-gray-600 mt-1">
@@ -278,7 +295,7 @@
                         
                         <Icon 
                           icon="mdi:arrow-right" 
-                          class="w-5 h-5 text-spiritual-saffron-600 group-hover:text-spiritual-saffron-700 transform group-hover:translate-x-1 transition-all duration-200" 
+                          class="w-5 h-5 text-primary-500 group-hover:text-primary-500/80 transform group-hover:translate-x-1 transition-all duration-200" 
                         />
                       </div>
                     </a>
@@ -292,7 +309,7 @@
         <!-- Simple Link Item -->
         <a
           href="/{item.slug}"
-          class="inline-flex items-center gap-2 px-4 py-2 text-foreground font-medium transition-all duration-200 ease-out hover:text-spiritual-saffron-700 hover:bg-spiritual-saffron-50 rounded-md"
+          class="inline-flex items-center gap-2 px-4 py-2 text-foreground font-medium transition-all duration-200 ease-out hover:text-primary-500 hover:bg-primary-500/10 rounded-md"
         >
           <Icon icon={item.icon} class="w-4 h-4" />
           <span>{item.title}</span>

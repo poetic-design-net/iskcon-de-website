@@ -317,7 +317,10 @@ export function getColorValue(token: string): string {
   
   if (parts.length === 3 && parts[0] === 'spiritual') {
     const [, colorName, shade] = parts;
-    return colors.spiritual[colorName as keyof typeof colors.spiritual][shade as any];
+    const colorGroup = colors.spiritual[colorName as keyof typeof colors.spiritual];
+    if (colorGroup && typeof colorGroup === 'object' && shade in colorGroup) {
+      return (colorGroup as any)[shade];
+    }
   }
   
   if (parts.length === 2) {

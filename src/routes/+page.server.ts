@@ -1,6 +1,7 @@
 import { getLatestPosts, templeQueries, eventQueries, homepageQueries } from '$lib/sanity/queries';
 import { validateProjectedPost } from '$lib/sanity/queries/validation';
 import { client } from '$lib/sanity/client';
+import { getHomepage } from '$lib/sanity/queries/homepage';
 
 // Definiere einen Typ für die Seiten-Daten, die wir für das Grid benötigen
 interface PageGridItem {
@@ -54,19 +55,29 @@ export const load = async () => {
     const temples = await templeQueries.getAllTemples();
     console.log('🏛️ Temples geladen:', temples?.length || 0);
 
-    // Events, Event-Kategorien und Homepage-Teaser parallel laden
-    const [allEvents, eventCategories, homepageTeasers] = await Promise.all([
+    // Events, Event-Kategorien, Homepage-Teaser und Homepage-Daten parallel laden
+    const [allEvents, eventCategories, homepageTeasers, homepageData] = await Promise.all([
       eventQueries.getAllEvents(),
       getEventCategories(),
-      homepageQueries.getAllHomepageTeasers()
+      homepageQueries.getAllHomepageTeasers(),
+      getHomepage()
     ]);
     console.log('🎪 Parallel Loading - Events:', allEvents?.length || 0, 'Categories:', eventCategories?.length || 0, 'Teasers:', homepageTeasers?.length || 0);
 
-    // Kommende Events filtern
+    // Kommende und vergangene Events filtern
     const now = new Date();
+    
+    // Kommende Events
     const upcomingEvents = allEvents
       .filter(event => new Date(event.startDate) >= now)
+      .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
       .slice(0, 12);
+
+    // Vergangene Events (die letzten 4)
+    const pastEvents = allEvents
+      .filter(event => new Date(event.startDate) < now)
+      .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())
+      .slice(0, 4);
 
     // Featured Events filtern
     const featuredEvents = allEvents
@@ -75,6 +86,7 @@ export const load = async () => {
 
     console.log('🎪 Events geladen:', {
       upcomingCount: upcomingEvents?.length || 0,
+      pastCount: pastEvents?.length || 0,
       featuredCount: featuredEvents?.length || 0,
       categoriesCount: eventCategories?.length || 0
     });
@@ -118,9 +130,11 @@ export const load = async () => {
       })),
       temples: temples,
       upcomingEvents: upcomingEvents || [],
+      pastEvents: pastEvents || [],
       featuredEvents: featuredEvents || [],
       eventCategories: eventCategories || [],
-      homepageTeasers: homepageTeasers || []
+      homepageTeasers: homepageTeasers || [],
+      homepage: homepageData
     };
   } catch (error) {
     console.error('Fehler beim Laden der Daten:', error);
@@ -129,9 +143,11 @@ export const load = async () => {
       pages: [],
       temples: [],
       upcomingEvents: [],
+      pastEvents: [],
       featuredEvents: [],
       eventCategories: [],
-      homepageTeasers: []
+      homepageTeasers: [],
+      homepage: null
     };
   }
 };

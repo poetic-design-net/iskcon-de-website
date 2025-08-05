@@ -372,15 +372,20 @@
 
     <!-- Footer -->
     <Dialog.Footer class="flex-shrink-0">
-      <Button variant="outline" on:click={() => dialogOpen = false}>
+      <button
+        type="button"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-3"
+        on:click={() => dialogOpen = false}
+      >
         Schließen
-      </Button>
-      <Button 
-        class="bg-spiritual-saffron-500 hover:bg-spiritual-saffron-600 text-white"
+      </button>
+      <button
+        type="button"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-9 px-3 bg-spiritual-saffron-500 hover:bg-spiritual-saffron-600 text-white"
         on:click={() => dialogOpen = false}
       >
         ✨ Besuchen Sie uns!
-      </Button>
+      </button>
     </Dialog.Footer>
   </Dialog.Content>
 </Dialog.Root>

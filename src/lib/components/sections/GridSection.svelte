@@ -26,7 +26,7 @@
     {#if visible}
       <div class="text-center mb-12" in:fly={{ y: 20, duration: 600 }}>
         <div class="flex items-center justify-center gap-3 mb-4">
-          <Icon icon="mdi:view-grid" class="w-8 h-8 text-spiritual-saffron-500" />
+          <Icon icon="mdi:view-grid" class="w-8 h-8 text-primary-500" />
           <h2 class="text-3xl font-medium text-foreground">Entdecken Sie ISKCON</h2>
         </div>
         <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -40,7 +40,7 @@
       {#each items as item, i}
         {#if visible}
           <div in:fly={{ y: 30, duration: 600, delay: i * 150 }}>
-            <Card.Root class="group h-full overflow-hidden border-border/50 hover:border-spiritual-saffron-200 hover:shadow-lg transition-all duration-300">
+            <Card.Root class="group h-full overflow-hidden border-border/50 hover:border-primary-500/30 hover:shadow-lg transition-all duration-300">
               <!-- Image Section -->
               <div class="relative aspect-video overflow-hidden">
                 <img
@@ -54,7 +54,7 @@
                 
                 <!-- Featured Badge -->
                 <div class="absolute top-4 right-4">
-                  <Badge class="bg-spiritual-saffron-500/90 text-white backdrop-blur-sm border-0">
+                  <Badge class="bg-primary-500/90 text-white backdrop-blur-sm border-0">
                     <Icon icon="mdi:star" class="w-3 h-3 mr-1" />
                     Empfohlen
                   </Badge>
@@ -63,7 +63,7 @@
 
               <!-- Content Section -->
               <Card.Content class="p-6">
-                <Card.Title class="text-xl font-medium text-card-foreground group-hover:text-spiritual-saffron-700 transition-colors duration-300 mb-3">
+                <Card.Title class="text-xl font-medium text-card-foreground group-hover:text-primary-500 transition-colors duration-300 mb-3">
                   {item.title}
                 </Card.Title>
                 
@@ -88,7 +88,7 @@
               <Card.Footer class="p-6 pt-0">
                 <Button 
                   href="/{item.slug}" 
-                  class="w-full group/btn hover:bg-spiritual-saffron-50 hover:border-spiritual-saffron-300 hover:text-spiritual-saffron-700"
+                  class="w-full group/btn hover:bg-primary-500/10 hover:border-primary-500/30 hover:text-primary-500"
                   variant="outline"
                 >
                   <span class="mr-2">Mehr erfahren</span>
@@ -110,7 +110,7 @@
         <Button 
           variant="outline" 
           size="lg"
-          class="hover:bg-spiritual-saffron-50 hover:border-spiritual-saffron-300 hover:text-spiritual-saffron-700"
+          class="hover:bg-primary-500/10 hover:border-primary-500/30 hover:text-primary-500"
         >
           <Icon icon="mdi:plus-circle" class="w-5 h-5 mr-2" />
           Alle Inhalte anzeigen

@@ -26,6 +26,20 @@ export default {
       rows: 3
     },
     {
+      name: 'parent',
+      title: 'Übergeordnete Seite',
+      type: 'reference',
+      to: [{ type: 'page' }],
+      description: 'Wählen Sie die übergeordnete Seite für die Hierarchie'
+    },
+    {
+      name: 'order',
+      title: 'Reihenfolge',
+      type: 'number',
+      description: 'Sortierreihenfolge innerhalb der gleichen Ebene',
+      validation: (Rule: any) => Rule.min(0)
+    },
+    {
       name: 'seo',
       title: 'SEO',
       type: 'object',
@@ -52,62 +66,80 @@ export default {
       ]
     },
     {
-      name: 'sections',
-      title: 'Sektionen',
+      name: 'content',
+      title: 'Inhalt',
       type: 'array',
       of: [
         {
-          type: 'reference',
-          to: [
-            { type: 'heroSection' },
-            { type: 'mediaSection' },
-            { type: 'quoteSection' },
-            { type: 'faqSection' },
-            { type: 'gridSection' },
-            { type: 'ctaSection' }
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'H1', value: 'h1'},
+            {title: 'H2', value: 'h2'},
+            {title: 'H3', value: 'h3'},
+            {title: 'H4', value: 'h4'},
+            {title: 'Quote', value: 'blockquote'}
           ],
+          marks: {
+            decorators: [
+              {title: 'Bold', value: 'strong'},
+              {title: 'Italic', value: 'em'},
+              {title: 'Underline', value: 'underline'},
+              {title: 'Strike', value: 'strike-through'}
+            ],
+            annotations: [
+              {
+                title: 'URL',
+                name: 'link',
+                type: 'object',
+                fields: [
+                  {
+                    title: 'URL',
+                    name: 'href',
+                    type: 'url'
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          type: 'image',
           options: {
-            disableNew: true
+            hotspot: true
           }
         }
-      ],
-      group: 'sections'
-    }
-  ],
-  groups: [
-    {
-      name: 'sections',
-      title: 'Sektionen',
-      default: true
+      ]
     }
   ],
   preview: {
     select: {
       title: 'title',
       subtitle: 'description',
-      sections: 'sections'
+      parent: 'parent.title',
+      slug: 'slug.current'
     },
-    prepare({ title, subtitle, sections }: any) {
-      const totalSections = sections?.length || 0
-      
-      // Erstelle eine Liste der Section-Typen für bessere Übersicht
-      const sectionTypes: Record<string, string> = {
-        heroSection: '🏔️ Hero',
-        mediaSection: '📝 Media',
-        quoteSection: '💬 Quote',
-        faqSection: '❓ FAQ',
-        gridSection: '🎨 Grid',
-        ctaSection: '⚡ CTA'
-      }
-      
-      const sectionSummary = sections?.map((section: any) =>
-        sectionTypes[section._type] || section._type
-      ).join(', ') || ''
-      
+    prepare({ title, subtitle, parent, slug }: any) {
+      // Für die Anzeige in Listen nur den Titel verwenden
       return {
-        title,
-        subtitle: subtitle || (totalSections > 0 ? `${totalSections} Sections: ${sectionSummary}` : 'Keine Sections')
+        title: title,
+        subtitle: subtitle || 'Keine Beschreibung'
       }
     }
-  }
+  },
+  orderings: [
+    {
+      title: 'Hierarchie',
+      name: 'hierarchyAsc',
+      by: [
+        { field: 'parent._ref', direction: 'asc' },
+        { field: 'order', direction: 'asc' }
+      ]
+    },
+    {
+      title: 'Alphabetisch',
+      name: 'titleAsc',
+      by: [{ field: 'title', direction: 'asc' }]
+    }
+  ]
 }

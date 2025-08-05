@@ -26,17 +26,17 @@ const config: Config = {
 				primary: {
 					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
 					foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
-					50: '#fdf3f2',
-					100: '#fbe4e2',
-					200: '#f7ccc8',
-					300: '#f1a9a2',
-					400: '#e77a6e',
-					500: '#B84234',
-					600: '#a93a2f',
-					700: '#8d2f26',
-					800: '#752823',
-					900: '#622320',
-					950: '#350f0d'
+					50: '#fef5f3',
+					100: '#fbe7e3',
+					200: '#f5cfc9',
+					300: '#e9aaa3',
+					400: '#db8079',
+					500: '#C6695D', // Unser ISKCON Rot
+					600: '#B85A4F', // Dunklere Variante
+					700: '#a5534a',
+					800: '#88433e',
+					900: '#6d352f',
+					950: '#2f1511'
 				},
 				secondary: {
 					DEFAULT: "hsl(var(--secondary) / <alpha-value>)",

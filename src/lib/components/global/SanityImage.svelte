@@ -42,7 +42,8 @@
   <img
     src={imageUrl}
     {alt}
-    class={`${className} object-${objectFit}`}
+    class={`${className} ${objectFit === 'cover' ? 'object-cover' : 'object-contain'}`}
+    style="object-fit: {objectFit};"
     loading="lazy"
     decoding="async"
     width={width}

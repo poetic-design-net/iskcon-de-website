@@ -190,7 +190,7 @@
           <div class="absolute top-4 left-4 flex gap-2">
             <Badge variant="secondary" class="bg-white/90 text-gray-900">
               <Icon icon={typeConfig.icon} class="w-3 h-3 mr-1" />
-              {getEventTypeLabel(event.eventType)}
+              {getEventTypeLabel(event.eventType || '')}
             </Badge>
             
             {#if event.isFeatured}
@@ -219,7 +219,7 @@
           <div class="flex items-center justify-center gap-2 mb-4">
             <Badge variant="secondary">
               <Icon icon={typeConfig.icon} class="w-3 h-3 mr-1" />
-              {getEventTypeLabel(event.eventType)}
+              {getEventTypeLabel(event.eventType || '')}
             </Badge>
             
             {#if event.isFeatured}
@@ -281,15 +281,14 @@
                     <p class="text-xs text-muted-foreground">{location.details}</p>
                   {/if}
                   {#if location.url}
-                    <Button
-                      variant="link"
-                      size="sm"
-                      class="h-auto p-0 text-xs mt-1"
+                    <button
+                      type="button"
+                      class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline text-primary h-auto p-0 text-xs mt-1"
                       on:click={() => window.open(location.url, '_blank')}
                     >
                       <Icon icon="mdi:directions" class="w-3 h-3 mr-1" />
                       {event.location.type === 'online' ? 'Online teilnehmen' : 'Wegbeschreibung'}
-                    </Button>
+                    </button>
                   {/if}
                 </div>
               </div>
@@ -342,26 +341,24 @@
                   
                   <div class="flex gap-4 mt-2">
                     {#if event.organizer?.email}
-                      <Button
-                        variant="link"
-                        size="sm"
-                        class="h-auto p-0 text-xs"
+                      <button
+                        type="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline text-primary h-auto p-0 text-xs"
                         on:click={() => window.open(`mailto:${event.organizer?.email}`, '_blank')}
                       >
                         <Icon icon="mdi:email" class="w-3 h-3 mr-1" />
                         E-Mail
-                      </Button>
+                      </button>
                     {/if}
                     {#if event.organizer?.phone}
-                      <Button
-                        variant="link"
-                        size="sm"
-                        class="h-auto p-0 text-xs"
+                      <button
+                        type="button"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 underline-offset-4 hover:underline text-primary h-auto p-0 text-xs"
                         on:click={() => window.open(`tel:${event.organizer?.phone}`, '_blank')}
                       >
                         <Icon icon="mdi:phone" class="w-3 h-3 mr-1" />
                         Telefon
-                      </Button>
+                      </button>
                     {/if}
                   </div>
                 </div>

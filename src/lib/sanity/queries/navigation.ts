@@ -3,6 +3,87 @@ import type { SanityNavigation, MegaMenuCategory } from '$lib/types';
 import { client } from '../client';
 import { NAVIGATION_PROJECTION } from './projections';
 
+// Query für Sanity-basierte Navigation
+export async function getSanityNavigation() {
+  const query = `*[_type == "navigation" && isActive == true][0]{
+    _id,
+    title,
+    items[]{
+      title,
+      type,
+      highlight,
+      badge,
+      link{
+        type,
+        url,
+        "reference": reference->{
+          _type,
+          "slug": slug.current,
+          title
+        },
+        openInNewTab
+      },
+      dropdown[]{
+        title,
+        description,
+        icon,
+        link{
+          type,
+          url,
+          "reference": reference->{
+            _type,
+            "slug": slug.current,
+            title
+          }
+        }
+      },
+      megamenu{
+        columns[]{
+          title,
+          items[]{
+            title,
+            description,
+            icon,
+            link{
+              type,
+              url,
+              "reference": reference->{
+                _type,
+                "slug": slug.current,
+                title
+              }
+            }
+          }
+        },
+        featured{
+          enabled,
+          title,
+          description,
+          image,
+          link{
+            type,
+            url,
+            "reference": reference->{
+              _type,
+              "slug": slug.current,
+              title
+            }
+          }
+        }
+      }
+    },
+    settings
+  }`
+
+  try {
+    const navigation = await client.fetch(query)
+    return navigation
+  } catch (error) {
+    console.error('Failed to fetch Sanity navigation:', error)
+    return null
+  }
+}
+
 // Navigation Query Funktionen
 export async function getNavigation(): Promise<SanityNavigation | null> {
   return client.fetch<SanityNavigation | null>(

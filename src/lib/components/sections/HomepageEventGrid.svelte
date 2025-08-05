@@ -5,34 +5,39 @@
   import Icon from '@iconify/svelte';
   import * as Card from '$lib/components/ui/card';
   import { Badge } from '$lib/components/ui/badge';
+  import { Button } from '$lib/components/ui/button';
   import SanityImage from '$lib/components/global/SanityImage.svelte';
   import EventModal from './EventModal.svelte';
   import type { SanityEvent } from '$lib/types';
 
   // Props
   export let events: SanityEvent[] = [];
+  export let pastEvents: SanityEvent[] = [];
   export let featuredEvents: SanityEvent[] = [];
   export let title = 'Kommende Veranstaltungen';
   export let subtitle = 'Entdecken Sie unsere spirituellen Events und Festivals';
 
   let visible = false;
+  // Wenn keine kommenden Events vorhanden sind, zeige vergangene
+  let activeTab = events.length > 0 ? 'upcoming' : 'past';
 
   // Modal State
   let selectedEvent: SanityEvent | null = null;
   let isModalOpen = false;
 
   // Events für Layout vorbereiten
-  $: heroEvent = featuredEvents[0] || events[0];
-  $: sideEvents = events.slice(0, 3);
+  $: currentEvents = activeTab === 'upcoming' ? events : pastEvents;
+  $: heroEvent = activeTab === 'upcoming' ? (featuredEvents[0] || events[0]) : pastEvents[0];
+  $: sideEvents = activeTab === 'upcoming' ? events.slice(0, 3) : pastEvents.slice(1, 4);
 
   // Event-Typ Konfiguration
   const eventTypeConfig = {
-    festival: { icon: 'mdi:festival', color: 'spiritual-gold-500' },
-    kirtan: { icon: 'mdi:music-note', color: 'spiritual-saffron-500' },
-    lecture: { icon: 'mdi:account-voice', color: 'spiritual-blue-500' },
-    workshop: { icon: 'mdi:hammer-wrench', color: 'spiritual-earth-500' },
-    retreat: { icon: 'mdi:meditation', color: 'spiritual-blue-700' },
-    other: { icon: 'mdi:calendar-star', color: 'gray-500' }
+    festival: { icon: 'mdi:festival', color: 'text-primary-500' },
+    kirtan: { icon: 'mdi:music-note', color: 'text-primary-500' },
+    lecture: { icon: 'mdi:account-voice', color: 'text-gray-600' },
+    workshop: { icon: 'mdi:hammer-wrench', color: 'text-gray-600' },
+    retreat: { icon: 'mdi:meditation', color: 'text-gray-700' },
+    other: { icon: 'mdi:calendar-star', color: 'text-gray-500' }
   };
 
   $: getTypeConfig = (eventType: string) => 
@@ -81,16 +86,47 @@
 </script>
 
 {#if visible}
-  <section class="py-16 bg-gradient-to-br from-spiritual-saffron-50/30 via-background to-spiritual-blue-50/20" in:fade={{ duration: 800 }}>
+  <section class="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50" in:fade={{ duration: 800 }}>
     <div class="container mx-auto px-4">
       <!-- Header -->
       <div class="text-center mb-12" in:fly={{ y: 30, delay: 200 }}>
-        <h2 class="text-3xl md:text-4xl font-medium text-gray-900 mb-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           {title}
         </h2>
-        <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
           {subtitle}
         </p>
+        
+        <!-- Tab Buttons -->
+        {#if events.length > 0 || pastEvents.length > 0}
+          <div class="flex justify-center gap-4">
+            {#if events.length > 0}
+              <button
+                on:click={() => activeTab = 'upcoming'}
+                class="px-6 py-3 rounded-full font-medium transition-all
+                       {activeTab === 'upcoming' 
+                         ? 'bg-primary-500 text-white shadow-lg' 
+                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}"
+              >
+                <Icon icon="mdi:calendar-clock" class="w-5 h-5 inline mr-2" />
+                Kommende Veranstaltungen
+              </button>
+            {/if}
+            
+            {#if pastEvents.length > 0}
+              <button
+                on:click={() => activeTab = 'past'}
+                class="px-6 py-3 rounded-full font-medium transition-all
+                       {activeTab === 'past' 
+                         ? 'bg-primary-500 text-white shadow-lg' 
+                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}"
+              >
+                <Icon icon="mdi:history" class="w-5 h-5 inline mr-2" />
+                Vergangene Veranstaltungen
+              </button>
+            {/if}
+          </div>
+        {/if}
       </div>
 
       <!-- Event Grid -->
@@ -119,8 +155,8 @@
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 {:else}
-                  <div class="w-full h-full bg-gradient-to-br from-spiritual-gold-200 to-spiritual-saffron-200 flex items-center justify-center">
-                    <Icon icon="mdi:calendar-heart" class="text-6xl text-spiritual-gold-500" />
+                  <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                    <Icon icon="mdi:calendar-heart" class="text-6xl text-primary-500/60" />
                   </div>
                 {/if}
                 
@@ -138,7 +174,7 @@
                 <!-- Featured Badge -->
                 {#if heroEvent.isFeatured}
                   <div class="absolute top-4 left-4">
-                    <Badge class="bg-spiritual-gold-500 text-white">
+                    <Badge class="bg-primary-500 text-white">
                       <Icon icon="mdi:star" class="w-3 h-3 mr-1" />
                       Hervorgehoben
                     </Badge>
@@ -164,18 +200,18 @@
 
               <!-- Hero Content -->
               <Card.Content class="p-6">
-                <h3 class="text-2xl font-medium text-gray-900 mb-3 group-hover:text-spiritual-saffron-600 transition-colors">
+                <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-500 transition-colors">
                   {heroEvent.title}
                 </h3>
                 
                 {#if heroEvent.description}
-                  <p class="text-muted-foreground mb-4 line-clamp-2">
+                  <p class="text-gray-600 mb-4 line-clamp-2">
                     {heroEvent.description}
                   </p>
                 {/if}
 
                 <!-- Location -->
-                <div class="flex items-center gap-2 text-sm text-spiritual-blue-600">
+                <div class="flex items-center gap-2 text-sm text-primary-500">
                   <Icon icon="mdi:map-marker" class="w-4 h-4" />
                   <span>
                     {#if heroEvent.location?.type === 'temple'}
@@ -217,8 +253,8 @@
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   {:else}
-                    <div class="w-full h-full bg-gradient-to-br from-spiritual-blue-100 to-spiritual-saffron-100 flex items-center justify-center">
-                      <Icon icon={getTypeConfig(event.eventType || '').icon} class="text-xl text-spiritual-blue-500" />
+                    <div class="w-full h-full bg-gradient-to-br from-gray-100 to-primary-500/10 flex items-center justify-center">
+                      <Icon icon={getTypeConfig(event.eventType || '').icon} class="text-xl text-primary-500/60" />
                     </div>
                   {/if}
                   
@@ -234,18 +270,18 @@
 
                 <!-- Content -->
                 <div class="flex-1 min-w-0">
-                  <h4 class="font-medium text-gray-900 mb-1 group-hover:text-spiritual-saffron-600 transition-colors truncate">
+                  <h4 class="font-semibold text-gray-900 mb-1 group-hover:text-primary-500 transition-colors truncate">
                     {event.title}
                   </h4>
                   
-                  <div class="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                  <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
                     <Icon icon="mdi:calendar" class="w-3 h-3" />
                     <span>{formatEventDate(event.startDate)}</span>
                     <span>•</span>
                     <span>{formatEventTime(event.startDate)}</span>
                   </div>
                   
-                  <div class="flex items-center gap-2 text-xs text-spiritual-blue-600">
+                  <div class="flex items-center gap-2 text-xs text-primary-500">
                     <Icon icon="mdi:map-marker" class="w-3 h-3" />
                     <span class="truncate">
                       {#if event.location?.type === 'temple'}
@@ -264,17 +300,29 @@
           {/each}
         </div>
       </div>
+      
+      <!-- Keine Events Nachricht -->
+      {#if currentEvents.length === 0}
+        <div class="text-center py-16">
+          <Icon icon="mdi:calendar-blank" class="w-16 h-16 text-gray-400 mx-auto mb-4" />
+          <p class="text-lg text-gray-600">
+            {activeTab === 'upcoming' 
+              ? 'Zurzeit sind keine kommenden Veranstaltungen geplant.' 
+              : 'Keine vergangenen Veranstaltungen vorhanden.'}
+          </p>
+        </div>
+      {/if}
 
       <!-- Call to Action -->
       <div class="text-center" in:fly={{ y: 30, delay: 800 }}>
-        <button
-          type="button"
-          class="inline-flex items-center gap-3 px-8 py-4 bg-spiritual-saffron-500 hover:bg-spiritual-saffron-600 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
-          on:click={() => goto('/events')}
+        <Button
+          variant="premium"
+          size="lg"
+          href="/events"
         >
-          <span>Alle Events entdecken</span>
+          <span>{activeTab === 'upcoming' ? 'Alle Events entdecken' : 'Alle vergangenen Events'}</span>
           <Icon icon="mdi:arrow-right" class="w-5 h-5" />
-        </button>
+        </Button>
       </div>
     </div>
   </section>

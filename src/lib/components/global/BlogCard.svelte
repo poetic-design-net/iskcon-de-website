@@ -7,7 +7,7 @@
   import { Badge } from '$lib/components/ui/badge';
   import { Button } from '$lib/components/ui/button';
   import Icon from '@iconify/svelte';
-  import { calculateReadingTime, formatPublishDate, getCategoryColor } from '$lib/utils/blogUtils';
+  import { calculateReadingTime, formatPublishDate } from '$lib/utils/blogUtils';
 
   export let post: SanityPostProjected;
 
@@ -17,21 +17,21 @@
 </script>
 
 {#if post}
-<Card.Root class="group relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 bg-card">
+<Card.Root class="group h-full flex flex-col relative overflow-hidden border border-gray-200 bg-white">
   <!-- Image Section -->
-  <div class="relative aspect-[16/10] overflow-hidden">
+  <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
     {#if post.featuredImage}
       <SanityImage
         src={post.featuredImage}
         alt={post.title}
-        className="h-full w-full transition-transform duration-500 group-hover:scale-110"
+        className="absolute inset-0 h-full w-full object-cover"
         width={800}
         objectFit="cover"
       />
     {:else}
       <!-- Fallback für Posts ohne Bild -->
-      <div class="h-full w-full bg-gradient-to-br from-spiritual-saffron-100 to-spiritual-saffron-200 flex items-center justify-center">
-        <Icon icon="mdi:image-off" class="w-16 h-16 text-spiritual-saffron-400" />
+      <div class="h-full w-full bg-gray-100 flex items-center justify-center">
+        <Icon icon="mdi:image-off" class="w-16 h-16 text-gray-400" />
       </div>
     {/if}
     
@@ -42,8 +42,7 @@
     {#if post.categories && post.categories.length > 0}
       <div class="absolute top-4 left-4 flex flex-wrap gap-2">
         {#each post.categories as category}
-          <Badge 
-            class="text-white backdrop-blur-sm border-0 {getCategoryColor(category.title)}">
+          <Badge class="bg-primary-500 text-white border-0">
             <Icon icon="mdi:tag" class="w-3 h-3 mr-1" />
             {category.title}
           </Badge>
@@ -62,58 +61,61 @@
     {/if}
   </div>
 
-  <!-- Content Section -->
-  <Card.Content class="p-7">
-    <!-- Title -->
-    <Card.Title class="text-2xl font-medium text-card-foreground group-hover:text-spiritual-saffron-700 transition-colors duration-300 line-clamp-2 mb-4">
-      {post.title}
-    </Card.Title>
-    
-    <!-- Description -->
-    <p class="text-muted-foreground group-hover:text-foreground transition-colors duration-300 line-clamp-3 mb-5 leading-relaxed text-base">
-      {post.description}
-    </p>
-    
-    <!-- Meta Information (Enhanced with Reading Time) -->
-    <div class="flex items-center gap-2 text-sm text-muted-foreground mb-5">
-      <Icon icon="mdi:calendar" class="w-4 h-4" />
-      <time>{formattedDate}</time>
-      {#if readingTime}
-        <span class="text-muted-foreground/50">•</span>
-        <div class="flex items-center gap-1">
-          <Icon icon="mdi:clock-outline" class="w-4 h-4" />
-          <span>{readingTime}</span>
-        </div>
-      {/if}
-    </div>
-
-    <!-- Tags -->
-    {#if post.tags && post.tags.length > 0}
-      <div class="flex flex-wrap gap-2 mb-5">
-        {#each post.tags.slice(0, 3) as tag}
-          <Badge variant="outline" class="text-xs text-muted-foreground hover:bg-spiritual-saffron-50 hover:text-spiritual-saffron-700 hover:border-spiritual-saffron-300">
-            #{tag}
-          </Badge>
-        {/each}
-        {#if post.tags.length > 3}
-          <Badge variant="outline" class="text-xs text-muted-foreground">
-            +{post.tags.length - 3}
-          </Badge>
+  <!-- Content wrapper to push button down -->
+  <div class="flex-1 flex flex-col">
+    <!-- Content Section -->
+    <Card.Content class="p-6 flex-1 flex flex-col">
+      <!-- Title -->
+      <Card.Title class="text-lg font-medium text-gray-900 mb-3">
+        {post.title}
+      </Card.Title>
+      
+      <!-- Description -->
+      <p class="text-gray-600 line-clamp-3 mb-4 leading-relaxed text-sm flex-1">
+        {post.description}
+      </p>
+      
+      <!-- Meta Information (Enhanced with Reading Time) -->
+      <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+        <Icon icon="mdi:calendar" class="w-4 h-4" />
+        <time>{formattedDate}</time>
+        {#if readingTime}
+          <span class="text-gray-400">•</span>
+          <div class="flex items-center gap-1">
+            <Icon icon="mdi:clock-outline" class="w-4 h-4" />
+            <span>{readingTime}</span>
+          </div>
         {/if}
       </div>
-    {/if}
-  </Card.Content>
 
-  <!-- Footer with CTA -->
-  <Card.Footer class="p-7 pt-0">
+      <!-- Tags -->
+      {#if post.tags && post.tags.length > 0}
+        <div class="flex flex-wrap gap-2">
+          {#each post.tags.slice(0, 3) as tag}
+            <Badge variant="outline" class="text-xs text-gray-600 border-gray-300">
+              #{tag}
+            </Badge>
+          {/each}
+          {#if post.tags.length > 3}
+            <Badge variant="outline" class="text-xs text-gray-500 border-gray-300">
+              +{post.tags.length - 3}
+            </Badge>
+          {/if}
+        </div>
+      {/if}
+    </Card.Content>
+  </div>
+
+  <!-- Footer with CTA - Always at bottom -->
+  <Card.Footer class="p-6 pt-0">
     <Button
       href="/blog/{post.slug}"
-      class="w-full group/btn bg-spiritual-saffron-500 hover:bg-spiritual-saffron-600 text-white py-3 text-base font-medium"
+      class="w-full bg-primary-500 hover:bg-primary-600 text-white py-2 text-sm font-medium"
     >
       <span class="mr-2">Artikel lesen</span>
       <Icon
         icon="mdi:arrow-right"
-        class="w-5 h-5 transition-transform group-hover/btn:translate-x-1"
+        class="w-4 h-4"
       />
     </Button>
   </Card.Footer>
@@ -123,13 +125,6 @@
 
 <style>
   /* Line clamp utilities für bessere Browser-Kompatibilität */
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
   .line-clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;

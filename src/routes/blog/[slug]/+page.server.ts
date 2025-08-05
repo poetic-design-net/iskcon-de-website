@@ -8,7 +8,7 @@ import { validateProjectedPost } from '$lib/sanity/queries/validation';
 import { error } from '@sveltejs/kit';
 import type { SanityPostProjected } from '$lib/types';
 
-export const load = async ({ params }) => {
+export const load = async ({ params }: { params: { slug: string } }) => {
   try {
     const post = await getPostBySlug(params.slug);
     console.log('📝 Raw post data:', post);

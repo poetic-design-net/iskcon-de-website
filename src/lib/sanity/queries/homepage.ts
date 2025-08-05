@@ -48,6 +48,46 @@ export async function getHomepageEventCategories(): Promise<SanityCategory[]> {
 }
 
 
+// Homepage Document Query
+export async function getHomepage() {
+  try {
+    const query = `*[_type == "homepage"][0] {
+      title,
+      hero {
+        title {
+          line1,
+          line2
+        },
+        subtitle,
+        backgroundImage {
+          asset->{
+            url
+          },
+          alt
+        },
+        buttons[] {
+          text,
+          link,
+          icon,
+          variant
+        }
+      },
+      seo {
+        metaTitle,
+        metaDescription
+      }
+    }`;
+    
+    const homepage = await client.fetch(query);
+    console.log('🏠 Homepage data loaded:', !!homepage);
+    
+    return homepage;
+  } catch (error) {
+    console.error('❌ Error loading homepage:', error);
+    return null;
+  }
+}
+
 // Homepage Query Objekt
 export const homepageQueries = {
   teasers: () => getHomepageTeasers(),
@@ -78,5 +118,8 @@ export const homepageQueries = {
   getHomepageTeaserByTheme,
   getHomepageEvents,
   getFeaturedHomepageEvents,
-  getHomepageEventCategories
+  getHomepageEventCategories,
+  
+  // Homepage Document
+  getHomepage
 };

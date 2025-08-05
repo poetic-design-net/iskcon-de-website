@@ -18,7 +18,6 @@
   export let badge: string | undefined = undefined;
   
   let visible = false;
-  let isHovered = false;
 
   onMount(() => {
     const observer = new IntersectionObserver(
@@ -39,11 +38,11 @@
   // Theme-spezifische Farben und Icons
   const themeConfig = {
     'hare-krishna': {
-      color: 'text-spiritual-saffron-600',
-      bgColor: 'bg-spiritual-saffron-50',
-      borderColor: 'border-spiritual-saffron-200',
+      color: 'text-primary-600',
+      bgColor: 'bg-primary-50',
+      borderColor: 'border-primary-200',
       icon: 'mdi:hinduism-om',
-      gradient: 'from-spiritual-saffron-500/10 to-transparent'
+      gradient: 'from-primary-500/10 to-transparent'
     },
     'bhakti-yoga': {
       color: 'text-emerald-600',
@@ -74,8 +73,6 @@
 <section
   id="theme-{theme}"
   class="{layout === 'imageFull' ? 'relative h-full min-h-[70vh]' : 'py-16 md:py-24'} overflow-hidden"
-  on:mouseenter={() => isHovered = true}
-  on:mouseleave={() => isHovered = false}
 >
   {#if layout === 'imageFull'}
     <!-- Vollbild-Layout mit Overlay -->
@@ -95,14 +92,14 @@
     
     <div class="relative z-10 w-full h-full flex items-center min-h-[70vh]">
       {#if visible}
-        <div
-          class="text-white px-8 md:px-12 lg:px-16"
-          style="width: 50%; max-width: 800px;"
-          in:fly={{ x: -50, duration: 800 }}
-        >
+        <div class="container mx-auto px-4">
+          <div
+            class="text-white max-w-3xl"
+            in:fly={{ x: -50, duration: 800 }}
+          >
           {#if badge}
-            <Badge class="mb-4 bg-white/20 backdrop-blur-sm text-white border-0">
-              <Icon icon={config.icon} class="w-4 h-4 mr-1" />
+            <Badge class="mb-4 bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30">
+              <Icon icon={config.icon} class="w-4 h-4 mr-1.5" />
               {badge}
             </Badge>
           {/if}
@@ -111,9 +108,14 @@
           <p class="text-lg md:text-xl mb-8 leading-relaxed opacity-90">{teaser}</p>
           
           {#if highlight}
-            <blockquote class="border-l-4 border-white/50 pl-6 mb-8 italic text-lg">
-              "{highlight}"
-            </blockquote>
+            <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 mb-8">
+              <div class="flex items-start gap-3">
+                <Icon icon="mdi:information" class="w-5 h-5 text-white/90 flex-shrink-0 mt-0.5" />
+                <p class="text-white/90 text-sm leading-relaxed">
+                  {highlight}
+                </p>
+              </div>
+            </div>
           {/if}
           
           <Button 
@@ -124,6 +126,7 @@
             {ctaText}
             <Icon icon="mdi:arrow-right" class="w-5 h-5 ml-2" />
           </Button>
+          </div>
         </div>
       {/if}
     </div>
@@ -136,44 +139,28 @@
           <!-- Bild-Spalte (links) -->
           <div
             class="relative md:col-start-1 md:col-end-2"
-            class:opacity-0={!visible}
-            class:animate-fade-in={visible}
-            style="--animation-delay: 0.2s"
           >
             <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-              <div
-                class="absolute inset-0 bg-gradient-to-t {config.gradient} z-10 pointer-events-none"
-              ></div>
               <SanityImage
                 src={image}
                 alt={headline}
                 width={800}
                 height={600}
-                className="w-full h-full object-cover transition-transform duration-700 {isHovered ? 'scale-110' : 'scale-100'}"
+                className="w-full h-full object-cover"
                 objectFit="cover"
               />
               
-              <!-- Dekoratives Element -->
-              <div class="absolute -top-6 -right-6 w-24 h-24 {config.bgColor} rounded-full opacity-50"></div>
-              <div class="absolute -bottom-8 -left-8 w-32 h-32 {config.bgColor} rounded-full opacity-30"></div>
             </div>
             
-            <!-- Theme Icon Badge -->
-            <div class="absolute top-4 right-4 p-3 {config.bgColor} rounded-full shadow-lg">
-              <Icon icon={config.icon} class="w-8 h-8 {config.color}" />
-            </div>
           </div>
           
           <!-- Text-Spalte (rechts) -->
           <div
             class="space-y-6 md:col-start-2 md:col-end-3"
-            class:opacity-0={!visible}
-            class:animate-fade-in={visible}
-            style="--animation-delay: 0.4s"
           >
           {#if badge}
-            <Badge class="{config.bgColor} {config.color} border-0">
-              <Icon icon={config.icon} class="w-4 h-4 mr-1" />
+            <Badge variant="secondary" class="mb-4">
+              <Icon icon={config.icon} class="w-4 h-4 mr-1.5" />
               {badge}
             </Badge>
           {/if}
@@ -187,46 +174,28 @@
           </p>
           
           {#if highlight}
-            <blockquote class="border-l-4 {config.borderColor} pl-6 py-2 {config.bgColor} rounded-r-lg">
-              <p class="text-lg italic {config.color}">
-                "{highlight}"
-              </p>
-            </blockquote>
+            <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+              <div class="flex items-start gap-3">
+                <Icon icon="mdi:information" class="w-5 h-5 {config.color} flex-shrink-0 mt-0.5" />
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  {highlight}
+                </p>
+              </div>
+            </div>
           {/if}
           
-          <!-- Feature Liste (optional) -->
-          <div class="grid grid-cols-2 gap-4 pt-4">
-            <div class="flex items-center gap-2 text-gray-600">
-              <Icon icon="mdi:check-circle" class="w-5 h-5 {config.color}" />
-              <span>Für Anfänger geeignet</span>
-            </div>
-            <div class="flex items-center gap-2 text-gray-600">
-              <Icon icon="mdi:clock-outline" class="w-5 h-5 {config.color}" />
-              <span>Flexible Zeiten</span>
-            </div>
-          </div>
           
-          <div class="flex flex-wrap gap-4 pt-4">
+          <div class="pt-2">
             <Button 
               href={ctaLink}
               size="lg"
-              class="group hover:{config.bgColor} hover:{config.borderColor} hover:{config.color}"
+              variant="default"
             >
               {ctaText}
               <Icon 
                 icon="mdi:arrow-right" 
-                class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" 
+                class="w-5 h-5 ml-2" 
               />
-            </Button>
-            
-            <Button
-              href="/kontakt"
-              variant="ghost"
-              size="lg"
-              class="{config.color} hover:{config.bgColor}"
-            >
-              <Icon icon="mdi:phone" class="w-5 h-5 mr-2" />
-              Kontakt aufnehmen
             </Button>
           </div>
         </div>
@@ -237,13 +206,10 @@
           <!-- Text-Spalte (links) -->
           <div
             class="space-y-6"
-            class:opacity-0={!visible}
-            class:animate-fade-in={visible}
-            style="--animation-delay: 0.4s"
           >
             {#if badge}
-              <Badge class="{config.bgColor} {config.color} border-0">
-                <Icon icon={config.icon} class="w-4 h-4 mr-1" />
+              <Badge variant="secondary" class="mb-4">
+                <Icon icon={config.icon} class="w-4 h-4 mr-1.5" />
                 {badge}
               </Badge>
             {/if}
@@ -257,43 +223,34 @@
             </p>
             
             {#if highlight}
-              <blockquote class="border-l-4 {config.borderColor} pl-6 py-2 {config.bgColor} rounded-r-lg">
-                <p class="text-lg italic {config.color}">
-                  "{highlight}"
-                </p>
-              </blockquote>
+              <div class="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                <div class="flex items-start gap-3">
+                  <Icon icon="mdi:information" class="w-5 h-5 {config.color} flex-shrink-0 mt-0.5" />
+                  <p class="text-gray-700 text-sm leading-relaxed">
+                    {highlight}
+                  </p>
+                </div>
+              </div>
             {/if}
             
-            <!-- Feature Liste (optional) -->
-            <div class="grid grid-cols-2 gap-4 pt-4">
-              <div class="flex items-center gap-2 text-gray-600">
-                <Icon icon="mdi:check-circle" class="w-5 h-5 {config.color}" />
-                <span>Für Anfänger geeignet</span>
-              </div>
-              <div class="flex items-center gap-2 text-gray-600">
-                <Icon icon="mdi:clock-outline" class="w-5 h-5 {config.color}" />
-                <span>Flexible Zeiten</span>
-              </div>
-            </div>
             
             <div class="flex flex-wrap gap-4 pt-4">
               <Button
                 href={ctaLink}
                 size="lg"
-                class="group hover:{config.bgColor} hover:{config.borderColor} hover:{config.color}"
+                variant="default"
               >
                 {ctaText}
                 <Icon
                   icon="mdi:arrow-right"
-                  class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1"
+                  class="w-5 h-5 ml-2"
                 />
               </Button>
               
               <Button
                 href="/kontakt"
-                variant="ghost"
+                variant="outline"
                 size="lg"
-                class="{config.color} hover:{config.bgColor}"
               >
                 <Icon icon="mdi:phone" class="w-5 h-5 mr-2" />
                 Kontakt aufnehmen
@@ -304,32 +261,19 @@
           <!-- Bild-Spalte (rechts) -->
           <div
             class="relative"
-            class:opacity-0={!visible}
-            class:animate-fade-in={visible}
-            style="--animation-delay: 0.2s"
           >
             <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-              <div
-                class="absolute inset-0 bg-gradient-to-t {config.gradient} z-10 pointer-events-none"
-              ></div>
               <SanityImage
                 src={image}
                 alt={headline}
                 width={800}
                 height={600}
-                className="w-full h-full object-cover transition-transform duration-700 {isHovered ? 'scale-110' : 'scale-100'}"
+                className="w-full h-full object-cover"
                 objectFit="cover"
               />
               
-              <!-- Dekoratives Element -->
-              <div class="absolute -top-6 -right-6 w-24 h-24 {config.bgColor} rounded-full opacity-50"></div>
-              <div class="absolute -bottom-8 -left-8 w-32 h-32 {config.bgColor} rounded-full opacity-30"></div>
             </div>
             
-            <!-- Theme Icon Badge -->
-            <div class="absolute top-4 right-4 p-3 {config.bgColor} rounded-full shadow-lg">
-              <Icon icon={config.icon} class="w-8 h-8 {config.color}" />
-            </div>
           </div>
         </div>
       {/if}
@@ -337,20 +281,3 @@
   {/if}
 </section>
 
-<style>
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out forwards;
-    animation-delay: var(--animation-delay, 0s);
-  }
-</style>

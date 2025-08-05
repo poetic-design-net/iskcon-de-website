@@ -34,20 +34,20 @@
 </script>
 
 <footer class="relative mt-16">
-	<!-- Gradient Background -->
-	<div class="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900">
+	<!-- Footer Background -->
+	<div class="bg-gray-100 border-t border-gray-200">
 		<div class="container mx-auto px-4 py-12 md:py-16">
 			<!-- Main Footer Content -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
 				<!-- Newsletter Section -->
 				<div class="lg:col-span-2">
-					<Card class="bg-white/10 backdrop-blur-sm border-white/20">
+					<Card class="bg-white border-gray-200 shadow-sm">
 						<CardContent class="p-6">
-							<h3 class="text-xl font-medium text-white mb-3 flex items-center gap-2">
-								<Icon icon="mdi:email-outline" class="w-6 h-6 text-orange-400" />
+							<h3 class="text-xl font-medium text-gray-900 mb-3 flex items-center gap-2">
+								<Icon icon="mdi:email-outline" class="w-6 h-6 text-primary-500" />
 								Bleiben Sie verbunden
 							</h3>
-							<p class="text-slate-300 mb-4">
+							<p class="text-gray-600 mb-4">
 								Erhalten Sie die neuesten Nachrichten über Events, spirituelle Lehren und 
 								Gemeinschaftsaktivitäten direkt in Ihr Postfach.
 							</p>
@@ -57,9 +57,9 @@
 									placeholder="Ihre E-Mail-Adresse"
 									bind:value={email}
 									required
-									class="flex-1 bg-white/20 border-white/30 text-white placeholder:text-slate-400"
+									class="flex-1"
 								/>
-								<Button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white">
+								<Button type="submit" variant="default">
 									<Icon icon="mdi:send" class="w-4 h-4" />
 								</Button>
 							</form>
@@ -69,15 +69,15 @@
 
 				<!-- Quick Links -->
 				<div>
-					<h4 class="text-lg font-medium text-white mb-4 flex items-center gap-2">
-						<Icon icon="mdi:link-variant" class="w-5 h-5 text-orange-400" />
+					<h4 class="text-lg font-medium text-gray-900 mb-4 flex items-center gap-2">
+						<Icon icon="mdi:link-variant" class="w-5 h-5 text-primary-500" />
 						Schnellzugriff
 					</h4>
 					<nav class="space-y-2">
 						{#each quickLinks as link}
 							<a
 								href={link.href}
-								class="block text-slate-300 hover:text-orange-400 transition-colors duration-200"
+								class="block text-gray-600 hover:text-primary-500 transition-colors duration-200"
 							>
 								{link.label}
 							</a>
@@ -87,13 +87,13 @@
 
 				<!-- Contact Info -->
 				<div>
-					<h4 class="text-lg font-medium text-white mb-4 flex items-center gap-2">
-						<Icon icon="mdi:phone" class="w-5 h-5 text-orange-400" />
+					<h4 class="text-lg font-medium text-gray-900 mb-4 flex items-center gap-2">
+						<Icon icon="mdi:phone" class="w-5 h-5 text-primary-500" />
 						Kontakt
 					</h4>
-					<div class="space-y-3 text-slate-300">
+					<div class="space-y-3 text-gray-600">
 						<div class="flex items-start gap-2">
-							<Icon icon="mdi:map-marker" class="w-4 h-4 text-orange-400 mt-1 flex-shrink-0" />
+							<Icon icon="mdi:map-marker" class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" />
 							<div class="text-sm">
 								<p>ISKCON Deutschland</p>
 								<p>Hauptstraße 123</p>
@@ -101,16 +101,16 @@
 							</div>
 						</div>
 						<div class="flex items-center gap-2">
-							<Icon icon="mdi:phone" class="w-4 h-4 text-orange-400" />
-							<a href="tel:+4930123456789" class="text-sm hover:text-orange-400 transition-colors">
+							<Icon icon="mdi:phone" class="w-4 h-4 text-primary-500" />
+							<a href="tel:+4930123456789" class="text-sm hover:text-primary-500 transition-colors">
 								+49 30 123 456 789
 							</a>
 						</div>
 						<div class="flex items-center gap-2">
-							<Icon icon="mdi:email" class="w-4 h-4 text-orange-400" />
+							<Icon icon="mdi:email" class="w-4 h-4 text-primary-500" />
 							<a
 								href="mailto:info@iskcon.de"
-								class="text-sm hover:text-orange-400 transition-colors"
+								class="text-sm hover:text-primary-500 transition-colors"
 							>
 								info@iskcon.de
 							</a>
@@ -121,28 +121,26 @@
 
 			<!-- Social Media Section -->
 			<div class="mb-8">
-				<Card class="bg-white/5 backdrop-blur-sm border-white/10">
+				<Card class="bg-white border-gray-200 shadow-sm">
 					<CardContent class="p-6">
 						<div class="flex flex-col sm:flex-row items-center justify-between gap-4">
 							<div class="flex items-center gap-3">
 								<img src="/iskcon_logo.svg" alt="ISKCON Logo" class="w-10 h-10" />
 								<div>
-									<h4 class="text-white font-medium">ISKCON Deutschland</h4>
-									<p class="text-slate-400 text-sm">Spirituelle Gemeinschaft</p>
+									<h4 class="text-gray-900 font-medium">ISKCON Deutschland</h4>
+									<p class="text-gray-600 text-sm">Spirituelle Gemeinschaft</p>
 								</div>
 							</div>
 							<div class="flex items-center gap-3">
-								<span class="text-slate-300 text-sm mr-2">Folgen Sie uns:</span>
+								<span class="text-gray-600 text-sm mr-2">Folgen Sie uns:</span>
 								{#each socialLinks as social}
-									<Button
-										variant="outline"
-										size="sm"
-										class="bg-white/10 border-white/20 hover:bg-white/20 text-white hover:text-orange-400 transition-all duration-200"
+									<a
 										href={social.href}
+										class="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-primary-500/10 text-gray-600 hover:text-primary-500 transition-colors duration-200"
 									>
 										<Icon icon={social.icon} class="w-5 h-5" />
 										<span class="sr-only">{social.name}</span>
-									</Button>
+									</a>
 								{/each}
 							</div>
 						</div>
@@ -151,8 +149,8 @@
 			</div>
 
 			<!-- Bottom Bar -->
-			<Separator class="bg-white/20 mb-6" />
-			<div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+			<Separator class="bg-gray-200 mb-6" />
+			<div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-600">
 				<div class="flex items-center gap-4">
 					<p>&copy; 2025 ISKCON Deutschland. Alle Rechte vorbehalten.</p>
 				</div>
@@ -160,7 +158,7 @@
 					{#each legalLinks as link}
 						<a
 							href={link.href}
-							class="hover:text-orange-400 transition-colors duration-200"
+							class="hover:text-primary-500 transition-colors duration-200"
 						>
 							{link.label}
 						</a>
@@ -169,18 +167,16 @@
 			</div>
 			
 			<!-- Spiritual Quote -->
-			<div class="mt-8 pt-6 border-t border-white/10">
+			<div class="mt-8 pt-6 border-t border-gray-200">
 				<div class="text-center">
-					<p class="text-slate-300 italic text-sm max-w-2xl mx-auto">
+					<p class="text-gray-600 italic text-sm max-w-2xl mx-auto">
 						"Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare<br />
 						Hare Rama, Hare Rama, Rama Rama, Hare Hare"
 					</p>
-					<p class="text-slate-500 text-xs mt-2">Das Maha-Mantra für spirituelle Erhebung</p>
+					<p class="text-gray-500 text-xs mt-2">Das Maha-Mantra für spirituelle Erhebung</p>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Decorative Elements -->
-	<div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
 </footer>

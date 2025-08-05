@@ -3,12 +3,7 @@ import post from '../schemas/post'
 import author from '../schemas/author'
 import category from '../schemas/category'
 import page from '../schemas/page'
-import heroSection from '../schemas/heroSection'
-import gridSection from '../schemas/gridSection'
-import mediaSection from '../schemas/mediaSection'
-import quoteSection from '../schemas/quoteSection'
-import faqSection from '../schemas/faqSection'
-import ctaSection from '../schemas/ctaSection'
+import navigation from '../schemas/navigation'
 // Neue ISKCON Schemas
 import temple from '../schemas/temple'
 import event from '../schemas/event'
@@ -18,6 +13,7 @@ import multimedia from '../schemas/multimedia'
 import newsletter from '../schemas/newsletter'
 import donation from '../schemas/donation'
 // Homepage Schemas
+import homepage from '../schemas/homepage'
 import homepageTeaser from '../schemas/homepageTeaser'
 // Movement/Bewegung Schemas
 import bewegungPage, { timelineItem, principle, statItem } from '../schemas/bewegung'
@@ -28,12 +24,7 @@ export const schemaTypes = [
   author,
   category,
   page,
-  heroSection,
-  gridSection,
-  mediaSection,
-  quoteSection,
-  faqSection,
-  ctaSection,
+  navigation,
   // Neue ISKCON Schemas
   temple,
   event,
@@ -43,6 +34,7 @@ export const schemaTypes = [
   newsletter,
   donation,
   // Homepage Schemas
+  homepage,
   homepageTeaser,
   // Movement/Bewegung Schemas
   bewegungPage,

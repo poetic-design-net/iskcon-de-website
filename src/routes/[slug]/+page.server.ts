@@ -5,6 +5,13 @@ import type { PageServerLoad } from './$types';
 export const load: PageServerLoad = async ({ params }) => {
   try {
     const page = await getPageBySlug(params.slug);
+    
+    if (!page) {
+      throw error(404, {
+        message: 'Seite nicht gefunden'
+      });
+    }
+    
     return {
       page
     };

@@ -117,25 +117,29 @@
       <!-- Previous Button -->
       <button
         on:click={prevSlide}
-        class="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all group"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
         aria-label="Vorheriger Slide"
       >
-        <Icon 
-          icon="mdi:chevron-left" 
-          class="w-6 h-6 text-gray-700 group-hover:text-gray-900" 
-        />
+        <div class="flex items-center justify-center p-4 bg-gray-50 group-hover:bg-primary-500/10 transition-colors">
+          <Icon 
+            icon="mdi:arrow-left" 
+            class="w-8 h-8 text-gray-600 group-hover:text-primary-500" 
+          />
+        </div>
       </button>
 
       <!-- Next Button -->
       <button
         on:click={nextSlide}
-        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-all group"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
         aria-label="Nächster Slide"
       >
-        <Icon 
-          icon="mdi:chevron-right" 
-          class="w-6 h-6 text-gray-700 group-hover:text-gray-900" 
-        />
+        <div class="flex items-center justify-center p-4 bg-gray-50 group-hover:bg-primary-500/10 transition-colors">
+          <Icon 
+            icon="mdi:arrow-right" 
+            class="w-8 h-8 text-gray-600 group-hover:text-primary-500" 
+          />
+        </div>
       </button>
 
       <!-- Pagination Dots -->
@@ -145,7 +149,7 @@
             on:click={() => goToSlide(index)}
             class="w-3 h-3 rounded-full transition-all {
               index === currentIndex 
-                ? 'bg-spiritual-saffron-600 w-8' 
+                ? 'bg-primary-500 w-8' 
                 : 'bg-gray-400 hover:bg-gray-600'
             }"
             aria-label="Gehe zu Slide {index + 1}"
@@ -159,7 +163,7 @@
   {#if autoplay && hasMultipleSlides}
     <div class="absolute bottom-0 left-0 right-0 h-1 bg-gray-200">
       <div 
-        class="h-full bg-spiritual-saffron-600 transition-none"
+        class="h-full bg-primary-500 transition-none"
         style="width: {((currentIndex + 1) / slideCount) * 100}%"
       />
     </div>

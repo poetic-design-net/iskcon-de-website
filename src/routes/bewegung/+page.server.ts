@@ -2,6 +2,18 @@ import type { PageServerLoad } from './$types';
 import { client } from '$lib/sanity/client';
 import { bewegungPageQuery, featuredStatsQuery } from '$lib/sanity/queries/bewegung';
 
+// Type Definition für Stat Items
+interface StatItem {
+	_id: string;
+	title: string;
+	featured?: boolean;
+	value?: string | number;
+	description?: string;
+	icon?: string;
+	category?: string;
+	unit?: string;
+}
+
 export const load = (async () => {
 	// Fallback-Daten für die Bewegung-Seite
 	const fallbackPage = {
@@ -23,27 +35,27 @@ export const load = (async () => {
 			hasStatsData: !!sanityStatsData,
 			title: sanityPageData?.title,
 			pageStatsCount: sanityPageData?.stats?.length || 0,
-			pageStats: sanityPageData?.stats?.map((s: any) => ({ id: s._id, title: s.title })) || [],
+			pageStats: sanityPageData?.stats?.map((s: StatItem) => ({ id: s._id, title: s.title })) || [],
 			allStatsCount: sanityStatsData?.length || 0,
-			availableStats: sanityStatsData?.map((s: any) => ({ id: s._id, title: s.title, featured: s.featured })) || []
+			availableStats: sanityStatsData?.map((s: StatItem) => ({ id: s._id, title: s.title, featured: s.featured })) || []
 		});
 		
 		// Verwende Stats aus der Seite, falls vorhanden
-		let featuredStats = [];
+		let featuredStats: StatItem[] = [];
 		if (sanityPageData?.stats && sanityPageData.stats.length > 0) {
 			// Verwende die in der Seite definierten Stats
 			featuredStats = sanityPageData.stats;
-			console.log('✅ Using page-specific stats:', featuredStats.map(s => s.title));
+			console.log('✅ Using page-specific stats:', featuredStats.map((s: StatItem) => s.title));
 		} else if (sanityStatsData && sanityStatsData.length > 0) {
 			// Fallback: Verwende featured oder erste verfügbare Stats
-			const featuredItems = sanityStatsData.filter(stat => stat.featured === true);
+			const featuredItems = sanityStatsData.filter((stat: StatItem) => stat.featured === true);
 			if (featuredItems.length > 0) {
 				featuredStats = featuredItems.slice(0, 4); // Max 4 featured
-				console.log('✅ Using featured stats:', featuredItems.map(s => s.title));
+				console.log('✅ Using featured stats:', featuredItems.map((s: StatItem) => s.title));
 			} else {
 				// Fallback: Nimm die ersten 4 verfügbaren Stats
 				featuredStats = sanityStatsData.slice(0, 4);
-				console.log('🔄 Using first 4 available stats:', featuredStats.map(s => s.title));
+				console.log('🔄 Using first 4 available stats:', featuredStats.map((s: StatItem) => s.title));
 			}
 		}
 		

@@ -1,0 +1,160 @@
+# Page snapshot
+
+```yaml
+- navigation:
+  - link "ISKCON Logo":
+    - /url: /
+    - img "ISKCON Logo"
+  - button "Über uns"
+  - button "Events"
+  - button "Tempel"
+  - button "Philosophie"
+  - button "Literatur"
+  - button "Spirituelle Praxis"
+  - link "Community":
+    - /url: /community
+- main:
+  - img "Nature Background"
+  - heading "Willkommen bei ISKCON Deutschland-Österreich" [level=1]
+  - paragraph: Wir gehören zur Internationalen Gesellschaft für Krishna-Bewusstsein (ISKCON) und freuen uns auf Ihren Besuch.
+  - link "Mehr erfahren":
+    - /url: /philosophie
+  - link "Tempel besuchen":
+    - /url: /tempel
+  - heading "Veranstaltungen" [level=2]
+  - paragraph: Nehmen Sie teil an unseren spirituellen Events und Festivals
+  - button "Kommende Veranstaltungen"
+  - button "Vergangene Veranstaltungen"
+  - button "Meditation & Pranayama Retreat Retreats bis 16. Juli 2025 21. Juli 2025 18:00 Meditation & Pranayama Retreat Ein intensives Wochenend-Retreat für tiefe Meditation und Atemübungen. Ideal für alle, die ihre spirituelle Praxis vertiefen möchten. Unterkunft und vegetarische Mahlzeiten inklusive. ISKCON Jandelsbrunn Simhachalam Temple":
+    - img "Meditation & Pranayama Retreat"
+    - text: Retreats bis 16. Juli 2025 21. Juli 2025 18:00
+    - heading "Meditation & Pranayama Retreat" [level=3]
+    - paragraph: Ein intensives Wochenend-Retreat für tiefe Meditation und Atemübungen. Ideal für alle, die ihre spirituelle Praxis vertiefen möchten. Unterkunft und vegetarische Mahlzeiten inklusive.
+    - text: ISKCON Jandelsbrunn Simhachalam Temple
+  - button "Meditation & Pranayama Retreat Meditation & Pranayama Retreat 21. Juli 2025 • 18:00 ISKCON Jandelsbrunn Simhachalam Temple":
+    - img "Meditation & Pranayama Retreat"
+    - heading "Meditation & Pranayama Retreat" [level=4]
+    - text: 21. Juli 2025 • 18:00 ISKCON Jandelsbrunn Simhachalam Temple
+  - link "Alle Events entdecken":
+    - /url: /events
+  - heading "Aktuelle Blog-Beiträge" [level=2]
+  - paragraph: Erfahren Sie mehr über unsere aktuellen Themen und Gedanken
+  - button
+  - button
+  - region "Horizontal scrolling content":
+    - img "Test2"
+    - text: international 4 Min. Lesezeit
+    - heading "Test2" [level=3]
+    - paragraph
+    - time: 28. Juni 2023
+    - text: "• 4 Min. Lesezeit #test"
+    - link "Artikel lesen":
+      - /url: /blog/test2
+    - img "ISKCON Bhagavata Mahavidyalaya expandiert mit neuem Bildungsprogramm in Europa und Afrika"
+    - text: international 4 Min. Lesezeit
+    - heading "ISKCON Bhagavata Mahavidyalaya expandiert mit neuem Bildungsprogramm in Europa und Afrika" [level=3]
+    - paragraph
+    - time: 27. Juni 2023
+    - text: "• 4 Min. Lesezeit #Mahavidyalaya #Afrika #Förderung +2"
+    - link "Artikel lesen":
+      - /url: /blog/iskcon-bhagavata-mahavidyalaya-expandiert-mit-neuem-bildungsprogramm-in-europa-und-afrika
+    - img "Test3"
+    - text: international test3 4 Min. Lesezeit
+    - heading "Test3" [level=3]
+    - paragraph
+    - time: 26. Juni 2023
+    - text: "• 4 Min. Lesezeit #test"
+    - link "Artikel lesen":
+      - /url: /blog/test3
+  - heading "Unsere Tempel in Deutschland" [level=2]
+  - img "Karte von Deutschland mit ISKCON Tempeln":
+    - 'button "Tempel: ISKCON Berlin"'
+    - text: Berlin
+    - 'button "Tempel: ISKCON Frankfurt"'
+    - text: Frankfurt
+    - 'button "Tempel: ISKCON Hamburg"'
+    - text: Hamburg
+    - 'button "Tempel: ISKCON Jandelsbrunn Simhachalam Temple"'
+    - text: Jandelsbrunn Simhachalam Temple
+    - 'button "Tempel: ISKCON Köln"'
+    - text: Köln
+    - 'button "Tempel: ISKCON München"'
+    - text: München
+  - text: Mantra des Herzens
+  - heading "Hare Krishna - Das Maha Mantra" [level=2]
+  - paragraph: Entdecken Sie die transformative Kraft des Hare Krishna Mantras. Seit Jahrtausenden praktiziert, öffnet dieses heilige Mantra die Tür zu innerem Frieden und spiritueller Erfüllung.
+  - blockquote:
+    - paragraph: "\"Das wichtigste Mantra unserer Zeit\""
+  - text: Für Anfänger geeignet Flexible Zeiten
+  - link "Mehr über das Mantra erfahren":
+    - /url: die-hare-krishna-bewegung
+  - link "Kontakt aufnehmen":
+    - /url: /kontakt
+  - img "Hare Krishna - Das Maha Mantra"
+  - img "Bhakti Yoga - Der Pfad der Hingabe"
+  - heading "Bhakti Yoga - Der Pfad der Hingabe" [level=2]
+  - paragraph: Bhakti Yoga ist der direkte Weg zu Gott durch liebevolle Hingabe. Erfahren Sie, wie diese uralte Praxis Ihr Leben mit Freude, Sinn und spiritueller Verbindung erfüllen kann.
+  - blockquote:
+    - paragraph: "\"Der natürliche Weg der Seele\""
+  - text: Für Anfänger geeignet Flexible Zeiten
+  - link "Bhakti Yoga entdecken":
+    - /url: bhakti-yoga
+  - link "Kontakt aufnehmen":
+    - /url: /kontakt
+  - img "Besuchen Sie unsere Tempel"
+  - heading "Besuchen Sie unsere Tempel" [level=2]
+  - paragraph: Unsere Tempel sind Oasen der Spiritualität, offen für alle Menschen. Erleben Sie die friedvolle Atmosphäre, nehmen Sie an Zeremonien teil und genießen Sie vegetarisches Prasadam.
+  - blockquote:
+    - paragraph: "\"Alle sind herzlich willkommen\""
+  - text: Für Anfänger geeignet Flexible Zeiten
+  - link "Tempel in Ihrer Nähe finden":
+    - /url: tempel-zentren
+  - link "Kontakt aufnehmen":
+    - /url: /kontakt
+  - button "Vorheriger Slide"
+  - button "Nächster Slide"
+  - button "Gehe zu Slide 1"
+  - button "Gehe zu Slide 2"
+- contentinfo:
+  - heading "Bleiben Sie verbunden" [level=3]
+  - paragraph: Erhalten Sie die neuesten Nachrichten über Events, spirituelle Lehren und Gemeinschaftsaktivitäten direkt in Ihr Postfach.
+  - textbox "Ihre E-Mail-Adresse"
+  - button
+  - heading "Schnellzugriff" [level=4]
+  - navigation:
+    - link "Events":
+      - /url: /events
+    - link "Tempel":
+      - /url: /temples
+    - link "Über uns":
+      - /url: /about
+    - link "Blog":
+      - /url: /posts
+  - heading "Kontakt" [level=4]
+  - paragraph: ISKCON Deutschland
+  - paragraph: Hauptstraße 123
+  - paragraph: 12345 Berlin
+  - link "+49 30 123 456 789":
+    - /url: tel:+4930123456789
+  - link "info@iskcon.de":
+    - /url: mailto:info@iskcon.de
+  - img "ISKCON Logo"
+  - heading "ISKCON Deutschland" [level=4]
+  - paragraph: Spirituelle Gemeinschaft
+  - text: "Folgen Sie uns:"
+  - link "Facebook":
+    - /url: "#"
+  - link "Instagram":
+    - /url: "#"
+  - link "YouTube":
+    - /url: "#"
+  - separator
+  - paragraph: © 2025 ISKCON Deutschland. Alle Rechte vorbehalten.
+  - navigation:
+    - link "Impressum":
+      - /url: /impressum
+    - link "Datenschutz":
+      - /url: /datenschutz
+  - paragraph: "\"Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare Hare Rama, Hare Rama, Rama Rama, Hare Hare\""
+  - paragraph: Das Maha-Mantra für spirituelle Erhebung
+```

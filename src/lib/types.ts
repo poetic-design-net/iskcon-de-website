@@ -154,48 +154,6 @@ export type SanityHomepageTeaser = SanityDocument & {
   order?: number;
 };
 
-export type SanityHeroSection = SanityDocument & {
-  _type: 'heroSection';
-  title: string;
-  subtitle?: string;
-  description?: SanityBlock[];
-  image: SanityImage;
-  backgroundImage?: SanityImage;
-  highlightedText?: string;
-  
-  // Design Props
-  variant?: 'standard' | 'fullscreen-overlay' | 'fullscreen-static' | 'split-screen' | 'minimal-card' | 'centered' | 'minimal';
-  layout?: 'left-image' | 'right-image';
-  alignment?: 'left' | 'center' | 'right';
-  colorScheme?: 'light' | 'dark' | 'spiritual' | 'warm';
-  overlayOpacity?: number;
-  spacing?: 'compact' | 'normal' | 'spacious';
-  
-  // Animation Props
-  animationType?: 'fade' | 'slide-up' | 'slide-left' | 'scale' | 'parallax' | 'none';
-  animationDuration?: number;
-  staggerAnimation?: boolean;
-  scrollIndicator?: boolean;
-  
-  // CTA Props
-  buttons?: Array<{
-    text: string;
-    link: string;
-    style: 'primary' | 'secondary' | 'outline' | 'ghost' | null;
-    icon?: string | null;
-    iconPosition?: 'left' | 'right' | null;
-    openInNewTab?: boolean | null;
-  }>;
-  
-  badge?: {
-    text: string;
-    style: 'info' | 'success' | 'warning' | 'spiritual' | 'default' | 'accent' | null;
-  };
-  
-  // Legacy CTA Felder (Rückwärtskompatibilität)
-  ctaText?: string;
-  ctaLink?: string;
-};
 
 export type SanityPageSEO = {
   title?: string;
@@ -203,34 +161,6 @@ export type SanityPageSEO = {
   image?: SanityImage;
 };
 
-export type SanityGridSection = SanityDocument & {
-  _type: 'gridSection';
-  _id: string;
-  title: string;
-  items: Array<{
-    title: string;
-    description: string;
-    image?: SanityImage;
-    link?: string;
-  }>;
-  columns?: 2 | 3 | 4;
-};
-
-export type SanityMediaSection = SanityDocument & {
-  _type: 'mediaSection';
-  _id: string;
-  title: string;
-  media: SanityImage;
-  videoUrl?: string;
-};
-
-export type SanityQuoteSection = SanityDocument & {
-  _type: 'quoteSection';
-  _id: string;
-  quote: string;
-  author: string;
-  role?: string;
-};
 
 // Navigation Types
 export type NavigationItem = {
@@ -250,6 +180,7 @@ export type MegaMenuCategory = {
   title: string;
   slug: string;
   icon: string;
+  subtitle?: string;
   sections?: NavigationSection[];
   featured?: {
     title: string;
@@ -285,50 +216,13 @@ export type SanityNavigation = SanityDocument & {
   }>;
 };
 
-export type SanityFaqSection = SanityDocument & {
-  _type: 'faqSection';
-  _id: string;
-  title: string;
-  faqs: Array<{
-    question: string;
-    answer: string;
-  }>;
-};
-
-export type SanityCtaSection = SanityDocument & {
-  _type: 'ctaSection';
-  _id: string;
-  title: string;
-  description?: string;
-  primaryButton: {
-    text: string;
-    link: string;
-  };
-  secondaryButton?: {
-    text: string;
-    link: string;
-  };
-  background?: {
-    type: 'color' | 'image';
-    color?: 'primary' | 'secondary' | 'light' | 'dark';
-    image?: SanityImage;
-  };
-};
-
-export type SanitySection =
-  | SanityHeroSection
-  | SanityGridSection
-  | SanityMediaSection
-  | SanityQuoteSection
-  | SanityFaqSection
-  | SanityCtaSection;
 
 export type SanityPage = SanityDocument & {
   title: string;
   slug: string;
   description?: string;
   seo?: SanityPageSEO;
-  sections?: Array<SanityHeroSection | SanityMediaSection | SanityQuoteSection | SanityFaqSection | SanityGridSection | SanityCtaSection>;
+  content?: SanityBlock[];
 };
 
 // Neue ISKCON Types

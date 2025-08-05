@@ -14,24 +14,24 @@
     --card-foreground: 240 10% 3.9%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 7 52% 58%; /* #C6695D - ISKCON Rot */
+    --primary-foreground: 0 0% 100%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 7 52% 58%; /* #C6695D - ISKCON Rot */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 72.2% 50.6%;
     --destructive-foreground: 0 0% 98%;
-    --ring: 240 10% 3.9%;
+    --ring: 7 52% 58%; /* #C6695D - ISKCON Rot für Focus-Ringe */
     --radius: 0.5rem;
 	--sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-primary: 7 52% 58%; /* #C6695D - ISKCON Rot */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 7 52% 95%; /* Helles ISKCON Rot */
+    --sidebar-accent-foreground: 7 52% 40%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 7 52% 58%; /* #C6695D - ISKCON Rot */
   }
 
   .dark {
@@ -45,23 +45,23 @@
     --card-foreground: 0 0% 98%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
+    --primary: 7 52% 58%; /* #C6695D - ISKCON Rot auch im Dark Mode */
+    --primary-foreground: 0 0% 100%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 7 52% 58%; /* #C6695D - ISKCON Rot */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --ring: 240 4.9% 83.9%;
+    --ring: 7 52% 58%; /* #C6695D - ISKCON Rot */
 	--sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 7 52% 58%; /* #C6695D - ISKCON Rot */
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-accent: 7 52% 20%; /* Dunkles ISKCON Rot für Dark Mode */
+    --sidebar-accent-foreground: 7 52% 70%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 7 52% 58%; /* #C6695D - ISKCON Rot */
   }
 }
 
@@ -116,5 +116,119 @@
   /* Globale Font-Weight Begrenzung */
   .font-bold, [class*="font-bold"] {
     font-weight: 500 !important; /* Maximal medium */
+  }
+}
+
+/* Custom Form Controls in ISKCON Farben */
+@layer components {
+  /* Checkboxen */
+  input[type="checkbox"]:checked {
+    @apply bg-[#C6695D] border-[#C6695D];
+  }
+  
+  input[type="checkbox"]:focus {
+    @apply ring-2 ring-[#C6695D]/50 ring-offset-2;
+  }
+  
+  input[type="checkbox"]:hover {
+    @apply border-[#B85A4F];
+  }
+  
+  /* Radio Buttons */
+  input[type="radio"]:checked {
+    @apply border-[#C6695D] accent-[#C6695D];
+  }
+  
+  input[type="radio"]:focus {
+    @apply ring-2 ring-[#C6695D]/50 ring-offset-2;
+  }
+  
+  input[type="radio"]:hover {
+    @apply border-[#B85A4F];
+  }
+  
+  /* Range Sliders */
+  input[type="range"] {
+    @apply accent-[#C6695D];
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-[#C6695D] rounded-full cursor-pointer hover:bg-[#B85A4F] transition-colors;
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    @apply appearance-none w-5 h-5 bg-[#C6695D] rounded-full cursor-pointer hover:bg-[#B85A4F] transition-colors border-0;
+  }
+  
+  input[type="range"]::-webkit-slider-runnable-track {
+    @apply h-2 bg-gray-200 rounded-full;
+  }
+  
+  input[type="range"]::-moz-range-track {
+    @apply h-2 bg-gray-200 rounded-full;
+  }
+  
+  /* Toggle/Switch Components */
+  [data-state="checked"] {
+    @apply bg-[#C6695D];
+  }
+  
+  /* Progress Bars */
+  progress {
+    @apply accent-[#C6695D];
+  }
+  
+  progress::-webkit-progress-value {
+    @apply bg-[#C6695D];
+  }
+  
+  progress::-moz-progress-bar {
+    @apply bg-[#C6695D];
+  }
+  
+  /* Form Focus States */
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply ring-2 ring-[#C6695D]/50 border-[#C6695D] outline-none;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-[#C6695D]/20 text-[#C6695D];
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[#C6695D]/50 rounded-full hover:bg-[#C6695D]/70 transition-colors;
+  }
+  
+  /* Firefox Scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(198, 105, 93, 0.5) #f3f4f6;
+  }
+  
+  /* Select Dropdown */
+  select {
+    @apply cursor-pointer;
+  }
+  
+  select:focus {
+    @apply ring-2 ring-[#C6695D]/50 border-[#C6695D];
+  }
+  
+  /* Links in Content */
+  .prose a,
+  article a {
+    @apply text-[#C6695D] hover:text-[#B85A4F] transition-colors underline-offset-2;
   }
 }

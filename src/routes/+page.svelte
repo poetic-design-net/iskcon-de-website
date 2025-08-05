@@ -9,41 +9,58 @@
 
   export let data: PageData;
   // Extrahiere die Daten aus dem data-Objekt
-  const { latestPosts, pages, temples, upcomingEvents, featuredEvents, eventCategories, homepageTeasers } = data;
+  const { latestPosts, pages, temples, upcomingEvents, pastEvents, featuredEvents, eventCategories, homepageTeasers, homepage } = data;
 
 </script>
 
+<svelte:head>
+  <title>{homepage?.seo?.metaTitle || homepage?.title || 'ISKCON Deutschland-Österreich'}</title>
+  {#if homepage?.seo?.metaDescription}
+    <meta name="description" content={homepage.seo.metaDescription} />
+  {/if}
+</svelte:head>
+
 <div class="min-h-screen">
   <!-- Hero Section -->
-  <Hero />
+  <Hero 
+    heroData={homepage?.hero}
+    latestEvent={upcomingEvents?.[0] || featuredEvents?.[0]}
+    latestPost={latestPosts?.[0]}
+    nearestTemple={temples}
+  />
 
   <!-- Homepage Event Grid Section - PROMINENT AN DER SPITZE -->
-  {#if upcomingEvents && upcomingEvents.length > 0}
-    <HomepageEventGrid
+  <section id="events">
+    {#if (upcomingEvents && upcomingEvents.length > 0) || (pastEvents && pastEvents.length > 0)}
+      <HomepageEventGrid
       events={upcomingEvents}
+      {pastEvents}
       featuredEvents={featuredEvents}
-      title="Kommende Veranstaltungen"
+      title="Veranstaltungen"
       subtitle="Nehmen Sie teil an unseren spirituellen Events und Festivals"
-    />
-  {/if}
+      />
+    {/if}
+  </section>
 
   <!-- Blog Posts Slider Section -->
-  {#if latestPosts && latestPosts.length > 0}
-    <SliderSection posts={latestPosts.filter(post => post !== null) as any}>
+  <section id="blog">
+    {#if latestPosts && latestPosts.length > 0}
+      <SliderSection posts={latestPosts.filter(post => post !== null) as any}>
       <div slot="header">
         <h2 class="text-3xl font-medium text-gray-900">Aktuelle Blog-Beiträge</h2>
         <p class="mt-4 text-xl text-gray-600">Erfahren Sie mehr über unsere aktuellen Themen und Gedanken</p>
       </div>
-    </SliderSection>
-  {/if}
+      </SliderSection>
+    {/if}
+  </section>
 
   <!-- Germany Map Section  -->
-  <div class="bg-white py-12">
+  <section id="tempel" class="bg-white py-12">
     <div class="container mx-auto px-4">
       <h2 class="mb-8 text-3xl font-medium text-gray-900">Unsere Tempel in Deutschland</h2>
       <GermanyMap {temples} />
     </div>
-  </div>
+  </section>
 
   <!-- Theme Teaser Section - Vereinfachte Layout-Gruppierung -->
   {#if homepageTeasers && homepageTeasers.length > 0}
