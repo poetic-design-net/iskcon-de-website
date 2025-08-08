@@ -11,7 +11,8 @@
 
   // Helper function to resolve slug
   function getSlug(slug: Literature['slug']): string {
-    return typeof slug === 'string' ? slug : slug.current;
+    // slug is already a string in the Literature type
+    return slug;
   }
 
   // Helper function to get cover image URL
@@ -141,19 +142,16 @@
   </div>
 
   <!-- Availability Indicator -->
-  {#if book.availability}
+  {#if book.availability && book.availability.isAvailable !== undefined}
     <div class="absolute top-2 right-2">
       <span
         class="px-2 py-1 text-xs font-medium rounded-full shadow-sm"
-        class:bg-green-500={book.availability === 'available'}
-        class:bg-yellow-500={book.availability === 'coming_soon'}
-        class:bg-gray-500={book.availability === 'unavailable'}
-        class:text-white={book.availability === 'available' || book.availability === 'coming_soon' || book.availability === 'unavailable'}
+        class:bg-green-500={book.availability.isAvailable === true}
+        class:bg-gray-500={book.availability.isAvailable === false}
+        class:text-white={true}
       >
-        {#if book.availability === 'available'}
+        {#if book.availability.isAvailable}
           Verfügbar
-        {:else if book.availability === 'coming_soon'}
-          Bald verfügbar
         {:else}
           Nicht verfügbar
         {/if}
@@ -164,7 +162,7 @@
 
 <style>
   .featured {
-    @apply ring-2 ring-orange-200;
+    box-shadow: 0 0 0 2px rgb(254 215 170);
   }
 
   .line-clamp-2 {

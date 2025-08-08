@@ -51,21 +51,10 @@
             </h1>
           </div>
           
-          <p class="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p class="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             Entdecken Sie unsere spirituellen Events, Festivals und Veranstaltungen. 
             Erleben Sie die Kraft der Gemeinschaft und spirituellen Praxis.
           </p>
-          
-          <div class="flex flex-wrap items-center justify-center gap-6 text-lg">
-            <div class="flex items-center gap-2">
-              <Icon icon="mdi:calendar-multiple" class="w-6 h-6 text-spiritual-gold-300" />
-              <span>{data.events.length} kommende Events</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon icon="mdi:star" class="w-6 h-6 text-spiritual-gold-300" />
-              <span>{data.featuredEvents.length} hervorgehobene Events</span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -84,88 +73,81 @@
         </div>
         
         <!-- Additional Information -->
-        <div class="mt-20 grid lg:grid-cols-3 gap-8" in:fade={{ delay: 600 }}>
+        <div class="mt-20 grid lg:grid-cols-3 gap-6" in:fade={{ delay: 600 }}>
           <!-- Event Guidelines -->
-          <Card.Root class="p-8 hover:shadow-lg transition-shadow">
-            <div class="text-center mb-6">
-              <Icon icon="mdi:information" class="w-12 h-12 text-spiritual-blue-500 mx-auto mb-4" />
-              <Card.Title class="text-xl font-medium text-gray-900">
-                Event-Informationen
-              </Card.Title>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 transition-colors hover:border-gray-300">
+            <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+              <Icon icon="mdi:information" class="w-7 h-7 text-primary-500" />
             </div>
-            <Card.Content class="space-y-4 text-gray-700">
-              <p>
-                Alle unsere Events sind offen für Menschen jeden Hintergrunds. 
-                Keine Vorerfahrung mit vedischer Spiritualität erforderlich.
-              </p>
-              <ul class="space-y-2 text-sm">
-                <li class="flex items-center gap-2">
-                  <Icon icon="mdi:check" class="w-4 h-4 text-spiritual-saffron-500" />
-                  Kostenlose Teilnahme (sofern nicht anders angegeben)
-                </li>
-                <li class="flex items-center gap-2">
-                  <Icon icon="mdi:check" class="w-4 h-4 text-spiritual-saffron-500" />
-                  Familienfreundliche Atmosphäre
-                </li>
-                <li class="flex items-center gap-2">
-                  <Icon icon="mdi:check" class="w-4 h-4 text-spiritual-saffron-500" />
-                  Vegetarisches Prasadam verfügbar
-                </li>
-              </ul>
-            </Card.Content>
-          </Card.Root>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">
+              Event-Informationen
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Alle unsere Events sind offen für Menschen jeden Hintergrunds. 
+              Keine Vorerfahrung erforderlich.
+            </p>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon icon="mdi:check" class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                <span>Kostenlose Teilnahme (sofern nicht anders angegeben)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon icon="mdi:check" class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                <span>Familienfreundliche Atmosphäre</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon icon="mdi:check" class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" />
+                <span>Vegetarisches Prasadam</span>
+              </li>
+            </ul>
+          </div>
           
           <!-- Contact Information -->
-          <Card.Root class="p-8 hover:shadow-lg transition-shadow">
-            <div class="text-center mb-6">
-              <Icon icon="mdi:account-group" class="w-12 h-12 text-spiritual-saffron-500 mx-auto mb-4" />
-              <Card.Title class="text-xl font-medium text-spiritual-saffron-900">
-                Kontakt & Fragen
-              </Card.Title>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 transition-colors hover:border-gray-300">
+            <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+              <Icon icon="mdi:account-group" class="w-7 h-7 text-primary-500" />
             </div>
-            <Card.Content class="space-y-4 text-gray-700">
-              <p>
-                Haben Sie Fragen zu unseren Veranstaltungen oder möchten Sie 
-                mehr über ISKCON erfahren?
-              </p>
-              <div class="space-y-3">
-                <a 
-                  href="mailto:info@iskcon.de" 
-                  class="flex items-center gap-2 text-spiritual-saffron-600 hover:text-spiritual-saffron-800 transition-colors"
-                >
-                  <Icon icon="mdi:email" class="w-4 h-4" />
-                  info@iskcon.de
-                </a>
-                <a 
-                  href="tel:+49123456789" 
-                  class="flex items-center gap-2 text-spiritual-saffron-600 hover:text-spiritual-saffron-800 transition-colors"
-                >
-                  <Icon icon="mdi:phone" class="w-4 h-4" />
-                  +49 (0) 123 456 789
-                </a>
-              </div>
-            </Card.Content>
-          </Card.Root>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">
+              Kontakt & Fragen
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Haben Sie Fragen zu unseren Veranstaltungen oder möchten Sie 
+              mehr über ISKCON erfahren?
+            </p>
+            <div class="space-y-3">
+              <a 
+                href="mailto:info@iskcon.de" 
+                class="flex items-center gap-2 text-primary-600 hover:text-primary-700 transition-colors text-sm"
+              >
+                <Icon icon="mdi:email" class="w-4 h-4" />
+                info@iskcon.de
+              </a>
+              <a 
+                href="tel:+49123456789" 
+                class="flex items-center gap-2 text-primary-600 hover:text-primary-700 transition-colors text-sm"
+              >
+                <Icon icon="mdi:phone" class="w-4 h-4" />
+                +49 (0) 123 456 789
+              </a>
+            </div>
+          </div>
           
           <!-- Newsletter Signup -->
-          <Card.Root class="p-8 hover:shadow-lg transition-shadow bg-spiritual-gold-50 border-spiritual-gold-200">
-            <div class="text-center mb-6">
-              <Icon icon="mdi:email-newsletter" class="w-12 h-12 text-spiritual-gold-600 mx-auto mb-4" />
-              <Card.Title class="text-xl font-medium text-spiritual-gold-900">
-                Event-Newsletter
-              </Card.Title>
+          <div class="bg-white rounded-xl border border-gray-200 p-6 transition-colors hover:border-gray-300">
+            <div class="w-14 h-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+              <Icon icon="mdi:email-newsletter" class="w-7 h-7 text-primary-500" />
             </div>
-            <Card.Content class="space-y-4">
-              <p class="text-spiritual-gold-800 text-center">
-                Verpassen Sie keine Veranstaltung! Abonnieren Sie unseren Newsletter 
-                für aktuelle Event-Informationen.
-              </p>
-              <Button class="w-full bg-spiritual-gold-600 hover:bg-spiritual-gold-700 text-white">
-                <Icon icon="mdi:email-plus" class="w-4 h-4 mr-2" />
-                Newsletter abonnieren
-              </Button>
-            </Card.Content>
-          </Card.Root>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">
+              Event-Newsletter
+            </h3>
+            <p class="text-sm text-gray-600 mb-4">
+              Verpassen Sie keine Veranstaltung! Abonnieren Sie unseren Newsletter.
+            </p>
+            <Button variant="premium" size="sm" class="w-full">
+              <Icon icon="mdi:email-plus" class="w-4 h-4" />
+              Newsletter abonnieren
+            </Button>
+          </div>
         </div>
         
         <!-- Dynamische Event-Kategorien -->
@@ -182,19 +164,19 @@
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {#each data.eventCategories as category}
-                <Card.Root class="p-6 hover:shadow-lg transition-shadow group">
+                <div class="bg-white rounded-xl border border-gray-200 p-6 transition-colors hover:border-gray-300 group">
                   <div class="flex items-start gap-4">
-                    <div class="p-3 bg-{category.color}-100 rounded-lg group-hover:bg-{category.color}-200 transition-colors">
-                      <Icon icon={category.icon} class="w-6 h-6 text-{category.color}-600" />
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center transition-colors">
+                      <Icon icon={category.icon} class="w-6 h-6 text-primary-500" />
                     </div>
                     <div>
-                      <h3 class="font-medium text-lg mb-2 text-{category.color}-900">{category.title}</h3>
+                      <h3 class="font-semibold text-base mb-2 text-gray-900">{category.title}</h3>
                       <p class="text-gray-600 text-sm">
                         {category.description}
                       </p>
                     </div>
                   </div>
-                </Card.Root>
+                </div>
               {/each}
             </div>
           </div>

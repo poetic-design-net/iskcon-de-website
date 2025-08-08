@@ -29,7 +29,19 @@
     nearestTemple={temples}
   />
 
-  <!-- Homepage Event Grid Section - PROMINENT AN DER SPITZE -->
+  <!-- Blog Posts Slider Section - NOW FIRST -->
+  {#if latestPosts && latestPosts.length > 0}
+    <section id="blog" class="min-h-[600px]">
+      <SliderSection posts={latestPosts.filter(post => post !== null) as any}>
+        <div slot="header">
+          <h2 class="text-3xl font-medium text-gray-900">Aktuelles</h2>
+          <p class="mt-4 text-xl text-gray-600">Erfahren Sie mehr über unsere aktuellen Themen und Gedanken</p>
+        </div>
+      </SliderSection>
+    </section>
+  {/if}
+
+  <!-- Homepage Event Grid Section - NOW SECOND -->
   <section id="events">
     {#if (upcomingEvents && upcomingEvents.length > 0) || (pastEvents && pastEvents.length > 0)}
       <HomepageEventGrid
@@ -39,18 +51,6 @@
       title="Veranstaltungen"
       subtitle="Nehmen Sie teil an unseren spirituellen Events und Festivals"
       />
-    {/if}
-  </section>
-
-  <!-- Blog Posts Slider Section -->
-  <section id="blog">
-    {#if latestPosts && latestPosts.length > 0}
-      <SliderSection posts={latestPosts.filter(post => post !== null) as any}>
-      <div slot="header">
-        <h2 class="text-3xl font-medium text-gray-900">Aktuelle Blog-Beiträge</h2>
-        <p class="mt-4 text-xl text-gray-600">Erfahren Sie mehr über unsere aktuellen Themen und Gedanken</p>
-      </div>
-      </SliderSection>
     {/if}
   </section>
 

@@ -24,12 +24,12 @@
     isDragging = true;
     startX = e.pageX - sliderContainer.offsetLeft;
     scrollLeft = sliderContainer.scrollLeft;
-    sliderContainer.style.cursor = 'grabbing';
+    // sliderContainer.style.cursor = 'grabbing';
   };
   
   const handleMouseUp = () => {
     isDragging = false;
-    sliderContainer.style.cursor = 'grab';
+    // sliderContainer.style.cursor = 'grab';
   };
   
   const handleMouseMove = (e: MouseEvent) => {
@@ -67,11 +67,12 @@
     </div>
   </div>
   
-  <div class="container mx-auto overflow-visible pr-0 sm:px-4">
+  <div class="container mx-auto pr-0 sm:px-4">
     <div class="relative lg:-mr-[calc(50vw-50%)] -mx-2 sm:mx-0">
       <div
         bind:this={sliderContainer}
-        class="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab pb-8 px-2 sm:px-0"
+        class="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar cursor-grab px-2 sm:px-0"
+        style="overflow-y: hidden;"
         role="region"
         aria-label="Horizontal scrolling content"
         on:mousedown={handleMouseDown}
@@ -90,12 +91,12 @@
           {:else if items}
             {#each items.filter(item => item && item.slug) as item (item.slug)}
               <div class="flex-none w-[calc(100vw-2rem)] sm:w-[calc(50vw-2rem)] lg:w-[calc(33.333vw-2rem)] snap-start">
-                <Card.Root class="group h-full overflow-hidden border-border/50 hover:border-primary-500/30 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <Card.Root class="group h-full overflow-hidden border border-gray-200 hover:border-gray-300 transition-colors duration-300">
                   <div class="relative aspect-[4/3] overflow-hidden">
                     <img
                       src="https://images.unsplash.com/photo-1714248376043-8c8e85c24826?auto=format&fit=crop&w=800&q=60"
                       alt={item.title}
-                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      class="h-full w-full object-cover"
                     />
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20"></div>
@@ -153,6 +154,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
     scroll-behavior: smooth;
+    overflow-y: hidden;
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;

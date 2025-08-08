@@ -160,7 +160,7 @@
                   {/if}
                   {#if scripture.explanation}
                     <div class="prose prose-sm max-w-none">
-                      <PortableText blocks={scripture.explanation} />
+                      <PortableText value={scripture.explanation} />
                     </div>
                   {/if}
                 </div>
@@ -206,7 +206,7 @@
                 <details class="bg-white border border-gray-200 rounded-lg p-4">
                   <summary class="font-semibold cursor-pointer">{faq.question}</summary>
                   <div class="mt-4 prose prose-sm max-w-none">
-                    <PortableText blocks={faq.answer} />
+                    <PortableText value={faq.answer} />
                   </div>
                 </details>
               {/each}
@@ -305,7 +305,7 @@
                   <div class="w-32 h-full">
                     {#if navigation.prev.featuredImage.asset}
                       <SanityImage
-                        image={navigation.prev.featuredImage}
+                        src={navigation.prev.featuredImage}
                         alt={navigation.prev.title}
                         class="w-full h-full object-cover"
                       />
@@ -337,7 +337,7 @@
                   <div class="w-32 h-full">
                     {#if navigation.next.featuredImage.asset}
                       <SanityImage
-                        image={navigation.next.featuredImage}
+                        src={navigation.next.featuredImage}
                         alt={navigation.next.title}
                         class="w-full h-full object-cover"
                       />

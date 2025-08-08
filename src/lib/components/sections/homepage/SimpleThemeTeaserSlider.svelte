@@ -14,6 +14,12 @@
   let sliderContainer: HTMLDivElement;
   let autoplayTimer: NodeJS.Timeout;
   let isPaused = false;
+  let containerHeight: string = 'auto';
+  
+  // Touch/Swipe variables
+  let touchStartX: number = 0;
+  let touchEndX: number = 0;
+  let isSwiping: boolean = false;
 
   $: slideCount = teasers.length;
   $: hasMultipleSlides = slideCount > 1;
@@ -59,9 +65,52 @@
     isPaused = false;
     startAutoplay();
   }
+  
+  // Touch/Swipe handlers
+  function handleTouchStart(e: TouchEvent) {
+    touchStartX = e.touches[0].clientX;
+    isSwiping = true;
+  }
+  
+  function handleTouchMove(e: TouchEvent) {
+    if (!isSwiping) return;
+    touchEndX = e.touches[0].clientX;
+  }
+  
+  function handleTouchEnd() {
+    if (!isSwiping) return;
+    
+    const swipeThreshold = 50; // Minimum distance for a swipe
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swiped left - next slide
+        nextSlide();
+      } else {
+        // Swiped right - previous slide
+        prevSlide();
+      }
+    }
+    
+    isSwiping = false;
+    touchStartX = 0;
+    touchEndX = 0;
+  }
 
   onMount(() => {
     startAutoplay();
+    
+    // Fix height after initial render to prevent layout shift in Firefox/Safari
+    if (sliderContainer) {
+      setTimeout(() => {
+        const slideElement = sliderContainer.querySelector('.w-full.flex-shrink-0');
+        if (slideElement) {
+          const height = slideElement.getBoundingClientRect().height;
+          containerHeight = `${height}px`;
+        }
+      }, 100);
+    }
   });
 
   onDestroy(() => {
@@ -89,13 +138,19 @@
   <!-- Slider Container -->
   <div class="relative" bind:this={sliderContainer}>
     <!-- Slides -->
-    <div class="relative overflow-hidden">
+    <div 
+      class="relative overflow-hidden touch-pan-y" 
+      style="height: {containerHeight};"
+      on:touchstart={handleTouchStart}
+      on:touchmove={handleTouchMove}
+      on:touchend={handleTouchEnd}
+    >
       <div 
         class="flex transition-transform duration-500 ease-in-out"
-        style="transform: translateX(-{currentIndex * 100}%)"
+        style="transform: translate3d(-{currentIndex * 100}%, 0, 0); will-change: transform;"
       >
         {#each teasers as teaser}
-          <div class="w-full flex-shrink-0">
+          <div class="w-full flex-shrink-0" style="backface-visibility: hidden;">
             <ThemeTeaser
               theme={teaser.theme}
               layout={teaser.layout}
@@ -114,10 +169,10 @@
 
     <!-- Navigation Controls -->
     {#if hasMultipleSlides}
-      <!-- Previous Button -->
+      <!-- Previous Button - Hidden on mobile -->
       <button
         on:click={prevSlide}
-        class="absolute left-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
+        class="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
         aria-label="Vorheriger Slide"
       >
         <div class="flex items-center justify-center p-4 bg-gray-50 group-hover:bg-primary-500/10 transition-colors">
@@ -128,10 +183,10 @@
         </div>
       </button>
 
-      <!-- Next Button -->
+      <!-- Next Button - Hidden on mobile -->
       <button
         on:click={nextSlide}
-        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
+        class="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 z-20 group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
         aria-label="Nächster Slide"
       >
         <div class="flex items-center justify-center p-4 bg-gray-50 group-hover:bg-primary-500/10 transition-colors">

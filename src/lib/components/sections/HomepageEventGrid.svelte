@@ -86,43 +86,45 @@
 </script>
 
 {#if visible}
-  <section class="py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50" in:fade={{ duration: 800 }}>
-    <div class="container mx-auto px-4">
+  <section class="py-12 sm:py-16 bg-gradient-to-br from-gray-50 via-white to-gray-50" in:fade={{ duration: 800 }}>
+    <div class="container mx-auto px-3 sm:px-4">
       <!-- Header -->
-      <div class="text-center mb-12" in:fly={{ y: 30, delay: 200 }}>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <div class="text-center mb-8 sm:mb-12" in:fly={{ y: 30, delay: 200 }}>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
           {title}
         </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 px-2 sm:px-0">
           {subtitle}
         </p>
         
         <!-- Tab Buttons -->
         {#if events.length > 0 || pastEvents.length > 0}
-          <div class="flex justify-center gap-4">
+          <div class="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4">
             {#if events.length > 0}
               <button
                 on:click={() => activeTab = 'upcoming'}
-                class="px-6 py-3 rounded-full font-medium transition-all
+                class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all text-sm sm:text-base
                        {activeTab === 'upcoming' 
                          ? 'bg-primary-500 text-white shadow-lg' 
                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}"
               >
-                <Icon icon="mdi:calendar-clock" class="w-5 h-5 inline mr-2" />
-                Kommende Veranstaltungen
+                <Icon icon="mdi:calendar-clock" class="w-4 sm:w-5 h-4 sm:h-5 inline mr-1 sm:mr-2" />
+                <span class="hidden sm:inline">Kommende Veranstaltungen</span>
+                <span class="sm:hidden">Kommende Events</span>
               </button>
             {/if}
             
             {#if pastEvents.length > 0}
               <button
                 on:click={() => activeTab = 'past'}
-                class="px-6 py-3 rounded-full font-medium transition-all
+                class="px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all text-sm sm:text-base
                        {activeTab === 'past' 
                          ? 'bg-primary-500 text-white shadow-lg' 
                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}"
               >
-                <Icon icon="mdi:history" class="w-5 h-5 inline mr-2" />
-                Vergangene Veranstaltungen
+                <Icon icon="mdi:history" class="w-4 sm:w-5 h-4 sm:h-5 inline mr-1 sm:mr-2" />
+                <span class="hidden sm:inline">Vergangene Veranstaltungen</span>
+                <span class="sm:hidden">Vergangene Events</span>
               </button>
             {/if}
           </div>
@@ -130,12 +132,12 @@
       </div>
 
       <!-- Event Grid -->
-      <div class="grid lg:grid-cols-3 gap-8 mb-12" in:fly={{ y: 30, delay: 400 }}>
+      <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12" in:fly={{ y: 30, delay: 400 }}>
         
         <!-- Hero Event (Featured/Newest) -->
         {#if heroEvent}
           <div class="lg:col-span-2">
-            <div class="group cursor-pointer hover:shadow-2xl transition-all duration-300 h-full overflow-hidden bg-white rounded-lg border border-border"
+            <div class="group cursor-pointer transition-colors duration-300 h-full overflow-hidden bg-white rounded-lg border border-gray-200 hover:border-gray-300"
                  on:click={() => {
                    console.log('🎯 CARD CLICKED!', heroEvent.title);
                    openEventModal(heroEvent);
@@ -145,7 +147,7 @@
                  tabindex="0">
               
               <!-- Hero Image -->
-              <div class="relative h-80 overflow-hidden">
+              <div class="relative h-48 sm:h-64 lg:h-80 overflow-hidden">
                 {#if heroEvent.featuredImage}
                   <SanityImage
                     src={heroEvent.featuredImage}
@@ -156,7 +158,7 @@
                   />
                 {:else}
                   <div class="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <Icon icon="mdi:calendar-heart" class="text-6xl text-primary-500/60" />
+                    <Icon icon="mdi:calendar-heart" class="text-5xl sm:text-6xl text-primary-500/60" />
                   </div>
                 {/if}
                 
@@ -193,14 +195,14 @@
 
                 <!-- Date/Time Overlay -->
                 <div class="absolute bottom-4 right-4 text-white text-right">
-                  <div class="text-2xl font-medium">{formatEventDate(heroEvent.startDate)}</div>
-                  <div class="text-sm opacity-90">{formatEventTime(heroEvent.startDate)}</div>
+                  <div class="text-lg sm:text-xl lg:text-2xl font-medium">{formatEventDate(heroEvent.startDate)}</div>
+                  <div class="text-xs sm:text-sm opacity-90">{formatEventTime(heroEvent.startDate)}</div>
                 </div>
               </div>
 
               <!-- Hero Content -->
-              <Card.Content class="p-6">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-500 transition-colors">
+              <Card.Content class="p-4 sm:p-6">
+                <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-500 transition-colors">
                   {heroEvent.title}
                 </h3>
                 
@@ -241,7 +243,7 @@
                    role="button"
                    tabindex="0">
               
-              <div class="flex gap-4 p-4">
+              <div class="flex gap-2 sm:gap-4 p-3 sm:p-4">
                 <!-- Mini Image -->
                 <div class="relative w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
                   {#if event.featuredImage}
@@ -257,32 +259,23 @@
                       <Icon icon={getTypeConfig(event.eventType || '').icon} class="text-xl text-primary-500/60" />
                     </div>
                   {/if}
-                  
-                  <!-- Registration Badge -->
-                  {#if event.registration?.required && event.registration.deadline}
-                    <div class="absolute -top-1 -right-1">
-                      <Badge class="bg-orange-500 text-white text-xs px-1 py-0">
-                        <Icon icon="mdi:calendar-clock" class="w-2 h-2" />
-                      </Badge>
-                    </div>
-                  {/if}
                 </div>
 
                 <!-- Content -->
-                <div class="flex-1 min-w-0">
-                  <h4 class="font-semibold text-gray-900 mb-1 group-hover:text-primary-500 transition-colors truncate">
+                <div class="flex-1 min-w-0 overflow-hidden">
+                  <h4 class="font-semibold text-gray-900 mb-1 group-hover:text-primary-500 transition-colors line-clamp-2">
                     {event.title}
                   </h4>
                   
-                  <div class="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                    <Icon icon="mdi:calendar" class="w-3 h-3" />
-                    <span>{formatEventDate(event.startDate)}</span>
-                    <span>•</span>
-                    <span>{formatEventTime(event.startDate)}</span>
+                  <div class="flex items-center gap-1 sm:gap-2 text-xs text-gray-500 mb-2 flex-wrap">
+                    <Icon icon="mdi:calendar" class="w-3 h-3 flex-shrink-0" />
+                    <span class="whitespace-nowrap">{formatEventDate(event.startDate)}</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span class="whitespace-nowrap">{formatEventTime(event.startDate)}</span>
                   </div>
                   
-                  <div class="flex items-center gap-2 text-xs text-primary-500">
-                    <Icon icon="mdi:map-marker" class="w-3 h-3" />
+                  <div class="flex items-center gap-1 sm:gap-2 text-xs text-primary-500 overflow-hidden">
+                    <Icon icon="mdi:map-marker" class="w-3 h-3 flex-shrink-0" />
                     <span class="truncate">
                       {#if event.location?.type === 'temple'}
                         {event.location.temple?.name || 'ISKCON Tempel'}
@@ -340,6 +333,7 @@
 <style>
   .line-clamp-2 {
     display: -webkit-box;
+    line-clamp: 2;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;

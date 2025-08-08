@@ -143,12 +143,10 @@
     console.log('🔗 Navigating to event detail:', event.slug);
     window.location.href = `/events/${event.slug}`;
   }
-  
-  let imageLoaded = false;
 </script>
 
 <div
-  class="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer border border-border/50 hover:border-spiritual-saffron-200 relative z-10 bg-white rounded-lg"
+  class="group h-full flex flex-col overflow-hidden transition-colors duration-300 cursor-pointer border border-gray-200 hover:border-gray-300 relative z-10 bg-white rounded-lg"
   tabindex="0"
   role="button"
   aria-label="Event: {event.title}"
@@ -159,21 +157,13 @@
   <div class="relative aspect-video overflow-hidden">
     {#if event.featuredImage}
       <div class="relative h-full w-full">
-        <!-- Loading Placeholder -->
-        {#if !imageLoaded}
-          <div class="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
-            <Icon icon="mdi:image" class="text-muted-foreground text-4xl" />
-          </div>
-        {/if}
-        
         <!-- Event Image -->
         <SanityImage
           src={event.featuredImage}
           alt={event.title}
           width={config.image.width}
           height={config.image.height}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-          on:load={() => imageLoaded = true}
+          className="h-full w-full object-cover"
         />
         
         <!-- Gradient Overlay -->
@@ -188,7 +178,7 @@
     
     <!-- Event Type Badge -->
     <div class="absolute top-3 right-3">
-      <Badge variant={typeConfig.variant} class="backdrop-blur-sm">
+      <Badge variant="secondary" class="bg-white/95 backdrop-blur-sm text-gray-700 border border-gray-200">
         <Icon icon={typeConfig.icon} class="w-3 h-3 mr-1" />
         {getEventTypeLabel(event.eventType || 'other')}
       </Badge>
@@ -197,7 +187,7 @@
     <!-- Featured Badge -->
     {#if event.isFeatured}
       <div class="absolute top-3 left-3">
-        <Badge class="bg-spiritual-gold-500 text-white backdrop-blur-sm border-0">
+        <Badge class="bg-white/95 text-primary-600 backdrop-blur-sm border border-gray-200">
           <Icon icon="mdi:star" class="w-3 h-3 mr-1" />
           Hervorgehoben
         </Badge>
@@ -207,7 +197,7 @@
     <!-- Anmeldung Deadline Badge (on image) -->
     {#if event.registration?.required && event.registration.deadline}
       <div class="absolute bottom-3 left-3">
-        <Badge class="bg-orange-500 text-white backdrop-blur-sm border-0 text-xs">
+        <Badge class="bg-white/95 text-orange-600 backdrop-blur-sm border border-gray-200 text-xs">
           <Icon icon="mdi:calendar-clock" class="w-3 h-3 mr-1" />
           bis {new Date(event.registration.deadline).toLocaleDateString('de-DE')}
         </Badge>
@@ -216,7 +206,7 @@
   </div>
   
   <!-- Event Content -->
-  <Card.Content class="p-6 space-y-4">
+  <Card.Content class="flex-1 p-6 space-y-4 flex flex-col">
     <!-- Datum und Zeit -->
     <div class="flex items-center gap-2 text-spiritual-blue-600">
       <Icon icon="mdi:calendar-clock" class="w-4 h-4 flex-shrink-0" />

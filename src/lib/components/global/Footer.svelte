@@ -33,18 +33,64 @@
 	];
 </script>
 
-<footer class="relative mt-16">
+<footer class="relative">
 	<!-- Footer Background -->
 	<div class="bg-gray-100 border-t border-gray-200">
 		<div class="container mx-auto px-4 py-12 md:py-16">
 			<!-- Main Footer Content -->
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-8 md:mb-12">
-				<!-- Newsletter Section -->
-				<div class="lg:col-span-2">
-					<Card class="bg-white border-gray-200 shadow-sm">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-8 md:mb-12">
+				<!-- Left Column: Contact & Image -->
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+					<!-- Contact Info -->
+					<div>
+						<h4 class="text-lg font-medium text-gray-900 mb-4">
+							Kontakt
+						</h4>
+						<div class="space-y-3 text-gray-600">
+							<div class="flex items-start gap-3">
+								<Icon icon="mdi:map-marker" class="w-5 h-5 text-primary-500 mt-0.5 flex-shrink-0" />
+								<div>
+									<p class="font-medium text-gray-900">ISKCON Deutschland</p>
+									<p class="text-sm">Hauptstraße 123</p>
+									<p class="text-sm">12345 Berlin</p>
+								</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<Icon icon="mdi:phone" class="w-5 h-5 text-primary-500 flex-shrink-0" />
+								<a href="tel:+4930123456789" class="hover:text-primary-500 transition-colors">
+									+49 30 123 456 789
+								</a>
+							</div>
+							<div class="flex items-center gap-3">
+								<Icon icon="mdi:email" class="w-5 h-5 text-primary-500 flex-shrink-0" />
+								<a
+									href="mailto:info@iskcon.de"
+									class="hover:text-primary-500 transition-colors"
+								>
+									info@iskcon.de
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					<!-- Image Placeholder -->
+					<div>
+						<div class="relative h-[200px] md:h-full md:min-h-[200px] rounded-lg overflow-hidden">
+							<img 
+								src="/img/hero_nature.webp" 
+								alt="ISKCON Temple" 
+								class="w-full h-full object-cover"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Newsletter -->
+				<div>
+					<Card class="bg-white border-gray-200 shadow-sm h-full">
 						<CardContent class="p-6">
-							<h3 class="text-xl font-medium text-gray-900 mb-3 flex items-center gap-2">
-								<Icon icon="mdi:email-outline" class="w-6 h-6 text-primary-500" />
+							<h3 class="text-xl font-medium text-gray-900 mb-3">
 								Bleiben Sie verbunden
 							</h3>
 							<p class="text-gray-600 mb-4">
@@ -65,57 +111,6 @@
 							</form>
 						</CardContent>
 					</Card>
-				</div>
-
-				<!-- Quick Links -->
-				<div>
-					<h4 class="text-lg font-medium text-gray-900 mb-4 flex items-center gap-2">
-						<Icon icon="mdi:link-variant" class="w-5 h-5 text-primary-500" />
-						Schnellzugriff
-					</h4>
-					<nav class="space-y-2">
-						{#each quickLinks as link}
-							<a
-								href={link.href}
-								class="block text-gray-600 hover:text-primary-500 transition-colors duration-200"
-							>
-								{link.label}
-							</a>
-						{/each}
-					</nav>
-				</div>
-
-				<!-- Contact Info -->
-				<div>
-					<h4 class="text-lg font-medium text-gray-900 mb-4 flex items-center gap-2">
-						<Icon icon="mdi:phone" class="w-5 h-5 text-primary-500" />
-						Kontakt
-					</h4>
-					<div class="space-y-3 text-gray-600">
-						<div class="flex items-start gap-2">
-							<Icon icon="mdi:map-marker" class="w-4 h-4 text-primary-500 mt-1 flex-shrink-0" />
-							<div class="text-sm">
-								<p>ISKCON Deutschland</p>
-								<p>Hauptstraße 123</p>
-								<p>12345 Berlin</p>
-							</div>
-						</div>
-						<div class="flex items-center gap-2">
-							<Icon icon="mdi:phone" class="w-4 h-4 text-primary-500" />
-							<a href="tel:+4930123456789" class="text-sm hover:text-primary-500 transition-colors">
-								+49 30 123 456 789
-							</a>
-						</div>
-						<div class="flex items-center gap-2">
-							<Icon icon="mdi:email" class="w-4 h-4 text-primary-500" />
-							<a
-								href="mailto:info@iskcon.de"
-								class="text-sm hover:text-primary-500 transition-colors"
-							>
-								info@iskcon.de
-							</a>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -164,17 +159,6 @@
 						</a>
 					{/each}
 				</nav>
-			</div>
-			
-			<!-- Spiritual Quote -->
-			<div class="mt-8 pt-6 border-t border-gray-200">
-				<div class="text-center">
-					<p class="text-gray-600 italic text-sm max-w-2xl mx-auto">
-						"Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare<br />
-						Hare Rama, Hare Rama, Rama Rama, Hare Hare"
-					</p>
-					<p class="text-gray-500 text-xs mt-2">Das Maha-Mantra für spirituelle Erhebung</p>
-				</div>
 			</div>
 		</div>
 	</div>

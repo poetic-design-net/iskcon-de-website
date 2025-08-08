@@ -17,7 +17,7 @@
 </script>
 
 {#if post}
-<Card.Root class="group h-full flex flex-col relative overflow-hidden border border-gray-200 bg-white">
+<Card.Root class="group h-full flex flex-col relative overflow-hidden border border-gray-200 bg-white min-h-[400px]">
   <!-- Image Section -->
   <div class="relative aspect-[16/10] overflow-hidden bg-gray-100">
     {#if post.featuredImage}

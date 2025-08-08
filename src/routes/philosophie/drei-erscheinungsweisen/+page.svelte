@@ -159,7 +159,7 @@
     
     <!-- Action Button -->
     <Button
-      on:click={() => showTest = !showTest}
+      onclick={() => showTest = !showTest}
       variant="soft"
       size="lg"
       class="shadow-md"
@@ -185,7 +185,7 @@
     <div class="flex flex-wrap justify-center gap-4 mb-12">
       {#each gunas as guna, index}
         <button
-          on:click={() => selectedGuna = index}
+          onclick={() => selectedGuna = index}
           class="px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2
                  {selectedGuna === index 
                    ? 'bg-gradient-to-r ' + guna.color + ' text-white shadow-lg scale-105' 

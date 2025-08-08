@@ -174,7 +174,7 @@
     
     <!-- Action Button -->
     <Button
-      on:click={() => showLineage = !showLineage}
+      onclick={() => showLineage = !showLineage}
       variant="soft"
       size="lg"
       class="shadow-md"
@@ -269,7 +269,7 @@
     <div class="flex flex-wrap justify-center gap-4 mb-12">
       {#each guruQualities as quality, index}
         <button
-          on:click={() => selectedQuality = index}
+          onclick={() => selectedQuality = index}
           class="px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2
                  {selectedQuality === index 
                    ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white shadow-lg scale-105' 

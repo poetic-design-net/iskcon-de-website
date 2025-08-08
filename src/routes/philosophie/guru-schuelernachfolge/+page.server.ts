@@ -8,7 +8,7 @@ export const load: PageServerLoad = async () => {
       slug: 'vegetarismus-prasadam',
       description: 'Spirituelle Ernährung und geweihte Speise'
     },
-    next: null // This is the last philosophy page
+    next: undefined // This is the last philosophy page
   };
 
   return {

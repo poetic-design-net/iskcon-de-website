@@ -23,6 +23,7 @@
   let selectedFilter: string = 'all';
   let viewMode: 'grid' | 'calendar' = 'grid';
   let currentMonth = new Date();
+  let filterDropdownOpen = false;
   
   // Modal State
   let selectedEvent: SanityEvent | null = null;
@@ -193,6 +194,20 @@
 
   onMount(() => {
     visible = true;
+    
+    // Close dropdown when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.filter-dropdown') && filterDropdownOpen) {
+        filterDropdownOpen = false;
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
   });
 </script>
 
@@ -209,50 +224,74 @@
           {subtitle}
         </p>
 
-        <!-- View Mode Toggle -->
-        <div class="flex justify-center gap-2 mb-6">
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 {viewMode === 'grid' 
-              ? 'bg-spiritual-saffron-500 text-white hover:bg-spiritual-saffron-600' 
-              : 'border border-input bg-background hover:bg-spiritual-saffron-50 hover:text-accent-foreground'
-            }"
-            on:click={() => handleViewModeChange('grid')}
-          >
-            <Icon icon="mdi:view-grid" class="w-4 h-4 mr-2" />
-            Grid-Ansicht
-          </button>
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 {viewMode === 'calendar' 
-              ? 'bg-spiritual-saffron-500 text-white hover:bg-spiritual-saffron-600' 
-              : 'border border-input bg-background hover:bg-spiritual-saffron-50 hover:text-accent-foreground'
-            }"
-            on:click={() => handleViewModeChange('calendar')}
-          >
-            <Icon icon="mdi:calendar-month" class="w-4 h-4 mr-2" />
-            Kalender-Ansicht
-          </button>
-        </div>
-
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap justify-center gap-2 mb-8">
-          {#each dynamicFilterOptions as filter}
+        <!-- Controls Row: View Mode Toggle + Filter Dropdown -->
+        <div class="flex justify-center items-center gap-4 mb-8">
+          <!-- View Mode Toggle -->
+          <div class="flex gap-1 bg-gray-100 rounded-lg p-1">
             <button
               type="button"
-              class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 {selectedFilter === filter.value 
-                ? 'bg-spiritual-saffron-500 text-white hover:bg-spiritual-saffron-600' 
-                : 'border border-input bg-background hover:bg-spiritual-saffron-50 hover:text-accent-foreground'
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-3 {viewMode === 'grid' 
+                ? 'bg-white text-gray-900 shadow-sm' 
+                : 'text-gray-600 hover:text-gray-900'
               }"
-              on:click={() => handleFilterChange(filter.value)}
+              on:click={() => handleViewModeChange('grid')}
             >
-              <Icon icon={filter.icon} class="w-4 h-4 mr-2" />
-              {filter.label}
-              <span class="ml-2 inline-flex items-center rounded-full bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-                {filter.count}
-              </span>
+              <Icon icon="mdi:view-grid" class="w-4 h-4 mr-2" />
+              Grid
             </button>
-          {/each}
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors h-9 px-3 {viewMode === 'calendar' 
+                ? 'bg-white text-gray-900 shadow-sm' 
+                : 'text-gray-600 hover:text-gray-900'
+              }"
+              on:click={() => handleViewModeChange('calendar')}
+            >
+              <Icon icon="mdi:calendar-month" class="w-4 h-4 mr-2" />
+              Kalender
+            </button>
+          </div>
+
+          <!-- Separator -->
+          <div class="h-8 w-px bg-gray-300"></div>
+
+          <!-- Filter Dropdown -->
+          <div class="relative filter-dropdown">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors h-9 px-4 border border-gray-300 bg-white hover:bg-gray-50 min-w-[200px]"
+              on:click={() => filterDropdownOpen = !filterDropdownOpen}
+            >
+              <Icon icon="mdi:filter" class="w-4 h-4 mr-2 text-gray-500" />
+              <span class="text-gray-700">{selectedFilter === 'all' ? 'Alle Events' : getCategoryLabel(selectedFilter)}</span>
+              <Icon icon="mdi:chevron-down" class="w-4 h-4 ml-auto text-gray-500" />
+            </button>
+            
+            {#if filterDropdownOpen}
+              <div class="absolute top-full mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50" 
+                   in:fly={{ y: -10, duration: 200 }}
+                   on:click|stopPropagation
+                   on:keydown|stopPropagation>
+                <div class="py-1 max-h-96 overflow-y-auto">
+                  {#each dynamicFilterOptions as filter}
+                    <button
+                      type="button"
+                      class="w-full text-left px-4 py-2 hover:bg-gray-50 flex items-center justify-between group transition-colors {selectedFilter === filter.value ? 'bg-primary-50 text-primary-600' : 'text-gray-700'}"
+                      on:click={() => { handleFilterChange(filter.value); filterDropdownOpen = false; }}
+                    >
+                      <div class="flex items-center">
+                        <Icon icon={filter.icon} class="w-4 h-4 mr-2 {selectedFilter === filter.value ? 'text-primary-500' : 'text-gray-400'}" />
+                        <span>{filter.label}</span>
+                      </div>
+                      <span class="ml-2 inline-flex items-center rounded-full bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600">
+                        {filter.count}
+                      </span>
+                    </button>
+                  {/each}
+                </div>
+              </div>
+            {/if}
+          </div>
         </div>
       </div>
     {/if}
@@ -284,11 +323,11 @@
         </div>
 
         <!-- Calendar Grid -->
-        <div class="bg-background rounded-lg border border-border overflow-hidden">
+        <div class="bg-background rounded-lg border border-gray-200 overflow-hidden">
           <!-- Weekday Headers -->
-          <div class="grid grid-cols-7 border-b border-border">
+          <div class="grid grid-cols-7 border-b border-gray-200">
             {#each ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'] as day}
-              <div class="p-3 text-center font-medium text-muted-foreground bg-muted/30">
+              <div class="p-3 text-center font-medium text-muted-foreground bg-gray-50">
                 {day}
               </div>
             {/each}
@@ -298,14 +337,14 @@
           {#each calendarGrid as week}
             <div class="grid grid-cols-7">
               {#each week as day}
-                <div class="min-h-[120px] border-r border-b border-border p-2 {!day.isCurrentMonth ? 'bg-muted/20' : ''} {day.isToday ? 'bg-spiritual-saffron-50' : ''}">
+                <div class="min-h-[120px] border-r border-b border-gray-200 p-2 {!day.isCurrentMonth ? 'bg-gray-50' : ''} {day.isToday ? 'bg-primary-50' : ''}">
                   <div class="text-sm font-medium mb-2 {!day.isCurrentMonth ? 'text-muted-foreground' : day.isToday ? 'text-spiritual-saffron-700' : 'text-foreground'}">
                     {day.date.getDate()}
                   </div>
                   
                   {#each day.events.slice(0, 3) as event}
                     <div
-                      class="mb-1 p-1 rounded text-xs bg-spiritual-saffron-100 text-spiritual-saffron-800 truncate cursor-pointer hover:bg-spiritual-saffron-200 transition-colors"
+                      class="mb-1 p-1 rounded text-xs bg-primary-100 text-primary-700 truncate cursor-pointer hover:bg-primary-200 transition-colors"
                       on:click={() => handleCalendarEventClick(event)}
                       on:keydown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleCalendarEventClick(event))}
                       role="button"
@@ -342,7 +381,7 @@
           
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {#each featuredEvents as event, i}
-              <div in:fly={{ y: 30, duration: 600, delay: 300 + i * 100 }}>
+              <div class="h-full" in:fly={{ y: 30, duration: 600, delay: 300 + i * 100 }}>
                 <EventCard 
                   {event} 
                   size="medium"
@@ -367,7 +406,7 @@
           
           <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {#each filteredEvents.slice(0, 6) as event, i}
-              <div in:fly={{ y: 30, duration: 600, delay: 500 + i * 100 }}>
+              <div class="h-full" in:fly={{ y: 30, duration: 600, delay: 500 + i * 100 }}>
                 <EventCard 
                   {event} 
                   size="medium"
@@ -396,44 +435,6 @@
       {/if}
     {/if}
 
-    <!-- Statistiken -->
-    {#if events.length > 0}
-      <div class="mt-16 grid gap-6 md:grid-cols-4 text-center" in:fade={{ delay: 600 }}>
-        <Card.Root class="p-6 hover:shadow-lg transition-shadow">
-          <div class="flex items-center justify-center gap-3 mb-2">
-            <Icon icon="mdi:calendar-multiple" class="w-6 h-6 text-spiritual-saffron-500" />
-            <span class="text-2xl font-medium text-foreground">{events.length}</span>
-          </div>
-          <p class="text-sm text-muted-foreground">Kommende Events</p>
-        </Card.Root>
-
-        <Card.Root class="p-6 hover:shadow-lg transition-shadow">
-          <div class="flex items-center justify-center gap-3 mb-2">
-            <Icon icon="mdi:star" class="w-6 h-6 text-spiritual-gold-500" />
-            <span class="text-2xl font-medium text-foreground">{featuredEvents.length}</span>
-          </div>
-          <p class="text-sm text-muted-foreground">Featured Events</p>
-        </Card.Root>
-
-        <Card.Root class="p-6 hover:shadow-lg transition-shadow">
-          <div class="flex items-center justify-center gap-3 mb-2">
-            <Icon icon="mdi:view-dashboard" class="w-6 h-6 text-spiritual-blue-500" />
-            <span class="text-2xl font-medium text-foreground">{eventCategories.length}</span>
-          </div>
-          <p class="text-sm text-muted-foreground">Event-Kategorien</p>
-        </Card.Root>
-
-        <Card.Root class="p-6 hover:shadow-lg transition-shadow">
-          <div class="flex items-center justify-center gap-3 mb-2">
-            <Icon icon="mdi:repeat" class="w-6 h-6 text-spiritual-earth-500" />
-            <span class="text-2xl font-medium text-foreground">
-              {events.filter(e => e.isRecurring).length}
-            </span>
-          </div>
-          <p class="text-sm text-muted-foreground">Regelmäßige Events</p>
-        </Card.Root>
-      </div>
-    {/if}
   </div>
 </section>
 
