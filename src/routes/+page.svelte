@@ -1,9 +1,11 @@
 <script lang="ts">
   import Hero from '$lib/components/sections/Hero.svelte';
+  import IntroSection from '$lib/components/sections/IntroSection.svelte';
   import HomepageEventGrid from '$lib/components/sections/HomepageEventGrid.svelte';
   import GridSection from '$lib/components/sections/GridSection.svelte';
   import SliderSection from '$lib/components/sections/SliderSection.svelte';
   import GermanyMap from '$lib/components/sections/GermanyMap.svelte';
+  import DACHMap from '$lib/components/sections/DACHMap.svelte';
   import { ThemeTeaserSection } from '$lib/components/sections/homepage';
   import type { PageData } from './$types';
 
@@ -29,7 +31,10 @@
     nearestTemple={temples}
   />
 
-  <!-- Blog Posts Slider Section - NOW FIRST -->
+  <!-- Intro Section for Newcomers -->
+  <IntroSection />
+
+  <!-- Blog Posts Slider Section -->
   {#if latestPosts && latestPosts.length > 0}
     <section id="blog" class="min-h-[600px]">
       <SliderSection posts={latestPosts.filter(post => post !== null) as any}>
@@ -54,11 +59,21 @@
     {/if}
   </section>
 
-  <!-- Germany Map Section  -->
+  <!-- Germany Map Section (Original) - DEAKTIVIERT zugunsten der DACH Map -->
+  {#if false}
   <section id="tempel" class="bg-white py-12">
     <div class="container mx-auto px-4">
       <h2 class="mb-8 text-3xl font-medium text-gray-900">Unsere Tempel in Deutschland</h2>
       <GermanyMap {temples} />
+    </div>
+  </section>
+  {/if}
+
+  <!-- DACH Map Section - Alle Tempel in Deutschland, Österreich und Schweiz -->
+  <section id="tempel" class="bg-white py-12">
+    <div class="container mx-auto px-4">
+      <h2 class="mb-8 text-3xl font-medium text-gray-900">Unsere Tempel</h2>
+      <DACHMap {temples} />
     </div>
   </section>
 
